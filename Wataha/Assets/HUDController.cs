@@ -10,10 +10,14 @@ public class HUDController : MonoBehaviour
     public Text numberOfWhiteFangs;
     public Text numberOfGoldFangs;
     public int Meat=200, WhiteFangs=100, GoldFangs=0;
-    public Button wolf1;
-    public Button wolf2;
+    public Button wolf1button;
+    public Button wolf2button;
+    public GameObject wolf1,wolf2;
+   
 
     public GameObject wolfScreen;
+    public Text strength,resistance,energy;
+
     private Text wolfScreenTitle;
     
 
@@ -21,8 +25,8 @@ public class HUDController : MonoBehaviour
     void Start()
     {
        
-        wolf1.onClick.AddListener(Wolf1Clicked);
-        wolf2.onClick.AddListener(Wolf2Clicked);
+        wolf1button.onClick.AddListener(Wolf1Clicked);
+        wolf2button.onClick.AddListener(Wolf2Clicked);
         numberOfMeat.text = Meat.ToString();
         numberOfWhiteFangs.text = WhiteFangs.ToString();
         numberOfGoldFangs.text = GoldFangs.ToString();
@@ -34,7 +38,6 @@ public class HUDController : MonoBehaviour
     void Update()
     {
 
-        
         numberOfMeat.text = Meat.ToString();
         numberOfWhiteFangs.text = WhiteFangs.ToString();
         numberOfGoldFangs.text = GoldFangs.ToString();
@@ -43,12 +46,18 @@ public class HUDController : MonoBehaviour
     void Wolf1Clicked()
     {
         wolfScreenTitle.text = "Wolf1";
+        strength.text = "STRENGTH: " + wolf1.GetComponent<Wolf>().strength;
+        resistance.text = "RESISTANCE: " + wolf1.GetComponent<Wolf>().resistance;
+        energy.text = "ENERGY: " + wolf1.GetComponent<Wolf>().energy;
         wolfScreen.gameObject.SetActive(true);
         
     }
     void Wolf2Clicked()
     {
         wolfScreenTitle.text = "Wolf2";
+        strength.text = "STRENGTH: " + wolf2.GetComponent<Wolf>().strength;
+        resistance.text = "RESISTANCE: " + wolf2.GetComponent<Wolf>().resistance;
+        energy.text = "ENERGY: " + wolf2.GetComponent<Wolf>().energy;
         wolfScreen.gameObject.SetActive(true);
 
     }
