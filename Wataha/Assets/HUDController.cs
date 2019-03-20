@@ -17,11 +17,13 @@ public class HUDController : MonoBehaviour
    private GameObject actualWolf;
 
     public GameObject wolfScreen;
-    public Text strength,resistance,energy;
+    public Text strength,resistance,energy,speed,agression;
 
     private Text wolfScreenTitle;
     public Text strengthEvo1, strengthEvo2;
     public Text resistanceEvo1, resistanceEvo2;
+    public Text speedEvo1, speedEvo2;
+    public Text agressionEvo1, agressionEvo2;
     public Text cost1, cost2;
     public Button choose1, choose2;
     public Text notenough;
@@ -61,65 +63,78 @@ public class HUDController : MonoBehaviour
     {
         notenough.gameObject.SetActive(false);
         wolfScreenTitle.text = "Wolf1";
-        strength.text = "STRENGTH: " + wolf1.GetComponent<Wolf>().strength;
-        resistance.text = "RESISTANCE: " + wolf1.GetComponent<Wolf>().resistance;
-        energy.text = "ENERGY: " + wolf1.GetComponent<Wolf>().energy;
+        actualWolf = wolf1;
         actualSkills1 = wolf1.GetComponent<Wolf>().skills[0];
         actualSkills2 = wolf1.GetComponent<Wolf>().skills[1];
-        actualWolf = wolf1;
-        strengthEvo1.text = "+ " + wolf1.GetComponent<Wolf>().skills[0].strength + " strength";
-        resistanceEvo1.text = "+ " + wolf1.GetComponent<Wolf>().skills[0].resistance + " resistance";
-        cost1.text = "cost: " + wolf1.GetComponent<Wolf>().skills[0].costM + " M  " + wolf1.GetComponent<Wolf>().skills[1].costWF + " WF  " + wolf1.GetComponent<Wolf>().skills[1].costGF + " GF";
-        strengthEvo2.text = "+ " + wolf1.GetComponent<Wolf>().skills[1].strength + " strength";
-        resistanceEvo2.text = "+ " + wolf1.GetComponent<Wolf>().skills[1].resistance + " resistance";
-        cost2.text = "cost: " + wolf1.GetComponent<Wolf>().skills[1].costM + " M  " + wolf1.GetComponent<Wolf>().skills[1].costWF + " WF  " + wolf1.GetComponent<Wolf>().skills[1].costGF + " GF";
-
-
+        
+        ProceedActualWolf();
         wolfScreen.gameObject.SetActive(true);
         
     }
     void Wolf2Clicked()
-    {
+    {  wolfScreenTitle.text = "Wolf2";
         actualWolf = wolf2;
+        actualSkills1 = wolf2.GetComponent<Wolf>().skills[0];
+        actualSkills2 = wolf2.GetComponent<Wolf>().skills[1];
         notenough.gameObject.SetActive(false);
-        wolfScreenTitle.text = "Wolf2";
-        strength.text = "STRENGTH: " + wolf2.GetComponent<Wolf>().strength;
-        resistance.text = "RESISTANCE: " + wolf2.GetComponent<Wolf>().resistance;
-        energy.text = "ENERGY: " + wolf2.GetComponent<Wolf>().energy;
+        ProceedActualWolf();
+        
         wolfScreen.gameObject.SetActive(true);
 
     }
     void Wolf3Clicked()
-    {
+    {   wolfScreenTitle.text = "Wolf3";
         actualWolf = wolf3;
+        actualSkills1 = wolf3.GetComponent<Wolf>().skills[0];
+        actualSkills2 = wolf3.GetComponent<Wolf>().skills[1];
         notenough.gameObject.SetActive(false);
-        wolfScreenTitle.text = "Wolf3";
-        strength.text = "STRENGTH: " + wolf3.GetComponent<Wolf>().strength;
-        resistance.text = "RESISTANCE: " + wolf3.GetComponent<Wolf>().resistance;
-        energy.text = "ENERGY: " + wolf3.GetComponent<Wolf>().energy;
+        ProceedActualWolf();
         wolfScreen.gameObject.SetActive(true);
 
     }
     void Wolf4Clicked()
     {
-        actualWolf = wolf4;
-        notenough.gameObject.SetActive(false);
         wolfScreenTitle.text = "Wolf4";
-        strength.text = "STRENGTH: " + wolf4.GetComponent<Wolf>().strength;
-        resistance.text = "RESISTANCE: " + wolf4.GetComponent<Wolf>().resistance;
-        energy.text = "ENERGY: " + wolf4.GetComponent<Wolf>().energy;
+        actualWolf = wolf4;
+        actualSkills1 = wolf4.GetComponent<Wolf>().skills[0];
+        actualSkills2 = wolf4.GetComponent<Wolf>().skills[1];
+        
+        notenough.gameObject.SetActive(false);
+      ProceedActualWolf();
         wolfScreen.gameObject.SetActive(true);
 
     }
     void Wolf5Clicked()
     {
-        actualWolf = wolf5;
-        notenough.gameObject.SetActive(false);
         wolfScreenTitle.text = "Wolf5";
-        strength.text = "STRENGTH: " + wolf5.GetComponent<Wolf>().strength;
-        resistance.text = "RESISTANCE: " + wolf5.GetComponent<Wolf>().resistance;
-        energy.text = "ENERGY: " + wolf5.GetComponent<Wolf>().energy;
+        actualWolf = wolf5;
+        actualSkills1 = wolf5.GetComponent<Wolf>().skills[0];
+        actualSkills2 = wolf5.GetComponent<Wolf>().skills[1];
+       
+        notenough.gameObject.SetActive(false);
+         ProceedActualWolf();
         wolfScreen.gameObject.SetActive(true);
+     
+    }
+    void ProceedActualWolf()
+    {
+        strength.text = "STRENGTH: " + actualWolf.GetComponent<Wolf>().strength;
+        resistance.text = "RESISTANCE: " + actualWolf.GetComponent<Wolf>().resistance;
+        energy.text = "ENERGY: " + actualWolf.GetComponent<Wolf>().energy;
+        speed.text = "SPEED: " + actualWolf.GetComponent<Wolf>().speed;
+        agression.text = "AGRESSION: " + actualWolf.GetComponent<Wolf>().agression;
+        strengthEvo1.text = "+ " + actualWolf.GetComponent<Wolf>().skills[0].strength + " strength";
+        resistanceEvo1.text = "+ " + actualWolf.GetComponent<Wolf>().skills[0].resistance + " resistance";
+        speedEvo1.text = "+ " + actualWolf.GetComponent<Wolf>().skills[0].speed + " speed";
+        agressionEvo1.text = "- " + actualWolf.GetComponent<Wolf>().skills[0].agression + " agression";
+        cost1.text = "cost: " + actualWolf.GetComponent<Wolf>().skills[0].costM + " M  " + actualWolf.GetComponent<Wolf>().skills[1].costWF + " WF  " + actualWolf.GetComponent<Wolf>().skills[1].costGF + " GF";
+        strengthEvo2.text = "+ " + actualWolf.GetComponent<Wolf>().skills[1].strength + " strength";
+        resistanceEvo2.text = "+ " + actualWolf.GetComponent<Wolf>().skills[1].resistance + " resistance";
+        speedEvo2.text = "+ " + actualWolf.GetComponent<Wolf>().skills[0].speed + " speed";
+        agressionEvo2.text = "- " + actualWolf.GetComponent<Wolf>().skills[0].agression + " agression";
+
+        cost2.text = "cost: " + actualWolf.GetComponent<Wolf>().skills[1].costM + " M  " + actualWolf.GetComponent<Wolf>().skills[1].costWF + " WF  " + actualWolf.GetComponent<Wolf>().skills[1].costGF + " GF";
+
 
     }
     void choose1Clicked()
@@ -131,6 +146,15 @@ public class HUDController : MonoBehaviour
             GoldFangs -= actualSkills1.costGF;
             actualWolf.GetComponent<Wolf>().strength += actualSkills1.strength;
             actualWolf.GetComponent<Wolf>().resistance += actualSkills1.resistance;
+            actualWolf.GetComponent<Wolf>().speed += actualSkills1.speed;
+            if (actualWolf.GetComponent<Wolf>().agression <= 0)
+            {
+                actualWolf.GetComponent<Wolf>().agression = 0;
+            }
+            else
+            {
+                actualWolf.GetComponent<Wolf>().agression -= actualSkills1.agression;
+            }
             actualWolf.GetComponent<Wolf>().skills.RemoveAt(0);
             actualWolf.GetComponent<Wolf>().skills.RemoveAt(0);
             wolfScreen.gameObject.SetActive(false);
@@ -151,6 +175,16 @@ public class HUDController : MonoBehaviour
             GoldFangs -= actualSkills2.costGF;
             actualWolf.GetComponent<Wolf>().strength += actualSkills2.strength;
             actualWolf.GetComponent<Wolf>().resistance += actualSkills2.resistance;
+            actualWolf.GetComponent<Wolf>().speed += actualSkills2.speed;
+            if(actualWolf.GetComponent<Wolf>().agression <= 0)
+            {
+                actualWolf.GetComponent<Wolf>().agression = 0;
+            }
+            else
+            {
+                actualWolf.GetComponent<Wolf>().agression -= actualSkills2.agression;
+            }
+            
             actualWolf.GetComponent<Wolf>().skills.RemoveAt(0);
             actualWolf.GetComponent<Wolf>().skills.RemoveAt(0);
             wolfScreen.gameObject.SetActive(false);
