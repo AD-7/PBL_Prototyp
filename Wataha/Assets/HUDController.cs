@@ -50,7 +50,7 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(wolfScreen.gameObject.active && Input.GetMouseButton(1))
+        if(wolfScreen.gameObject.active && (Input.GetMouseButton(1) || Input.GetButton("Cancel")))
         {
             wolfScreen.SetActive(false);
             notenough.gameObject.SetActive(false);
