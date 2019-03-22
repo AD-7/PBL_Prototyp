@@ -25,7 +25,7 @@ public class HUDController : MonoBehaviour
     public Text speedEvo1, speedEvo2;
     public Text agressionEvo1, agressionEvo2;
     public Text cost1, cost2;
-    public Button choose1, choose2;
+    public Button choose1, choose2 , close;
     public Text notenough;
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,7 @@ public class HUDController : MonoBehaviour
         wolf5button.onClick.AddListener(Wolf5Clicked);
         choose1.onClick.AddListener(choose1Clicked);
         choose2.onClick.AddListener(choose2Clicked);
+        close.onClick.AddListener(CloseClicked);
         numberOfMeat.text = Meat.ToString();
         numberOfWhiteFangs.text = WhiteFangs.ToString();
         numberOfGoldFangs.text = GoldFangs.ToString();
@@ -49,7 +50,7 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(wolfScreen.gameObject.active && Input.GetMouseButton(1))
+        if(wolfScreen.gameObject.active && (Input.GetMouseButton(1) || Input.GetButton("Cancel")))
         {
             wolfScreen.SetActive(false);
             notenough.gameObject.SetActive(false);
@@ -193,5 +194,11 @@ public class HUDController : MonoBehaviour
         {
             notenough.gameObject.SetActive(true);
         }
+    }
+
+    void CloseClicked()
+    {
+        notenough.gameObject.SetActive(false);
+        wolfScreen.gameObject.SetActive(false);
     }
 }
