@@ -17,7 +17,7 @@ public class Moving : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            position.transform.Translate(new Vector3(0, 0, 0.05f));
+            position.transform.Translate(new Vector3(0, 0, 0.1f));
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -31,7 +31,7 @@ public class Moving : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            position.transform.Translate(new Vector3(0f, 0.0f, -0.02f));
+            position.transform.Translate(new Vector3(0f, 0.0f, -0.05f));
            
         }
         //if (Input.GetKey(KeyCode.Space))

@@ -17,14 +17,21 @@ public class QuestGiver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actualQuest.questStatus.Equals(Quest.status.SUCCED))
-            CompletedQuest();
+        if(actualQuest!=null)
+            if (actualQuest.questStatus.Equals(Quest.status.SUCCED))
+                CompletedQuest();
     }
-
 
     public void CompletedQuest()
     {
         questCompleted.Add(actualQuest);
-        actualQuest = questsList[questsList.IndexOf(actualQuest) + 1];
+        if ((questsList.IndexOf(actualQuest) + 1) < questsList.Count)
+        {
+            actualQuest = questsList[questsList.IndexOf(actualQuest) + 1];
+        }
+        else
+        {
+            actualQuest = null;
+        }
     }
 }

@@ -10,14 +10,19 @@ public class QuestController : MonoBehaviour
     public GameObject player;
     public GameObject questLog;
 
-    public Button acceptButton, closeButton;
+    public Button acceptButton, closeButton, questLogButton;
 
     public List<Toggle> wolfToggles;
+    public List<Wolf> wolfs;
 
     public Text strength, resistance, speed, agression;
     public Text title, description, reward;
 
+    public HUDController hud;
+
     private QuestGiver giver;
+    private QuestGiver actualQuestGiver;
+    private Quest actualQuest;
 
     void Start()
     {
@@ -26,6 +31,13 @@ public class QuestController : MonoBehaviour
 
         acceptButton.onClick.AddListener(AcceptQuest);
         closeButton.onClick.AddListener(CloseQuestLog);
+        questLogButton.onClick.AddListener(OpenActualQuestLog);
+
+        foreach (Wolf wolf in player.GetComponentsInChildren<Wolf>())
+        {
+            wolfs.Add(wolf);
+        }
+
     }
 
     // Update is called once per frame
@@ -54,9 +66,14 @@ public class QuestController : MonoBehaviour
             if(giver.actualQuest != null)
             {
                 ToogleWolf();
-                SetQuestLog();
+                SetQuestLog(giver.actualQuest);
                 questLog.SetActive(true);
             }
+        }
+
+        if(actualQuest!=null && actualQuestGiver != null && CheckIfCompleted())
+        {
+            QuestCompleted();
         }
     }
 
@@ -64,7 +81,7 @@ public class QuestController : MonoBehaviour
     public void ToogleWolf()
     {
         int i = 0;
-        foreach (Wolf wolf in player.GetComponentsInChildren<Wolf>())
+        foreach (Wolf wolf in wolfs)
         {
             wolfToggles[i].interactable = CheckWolf( wolf);
             i++;
@@ -81,33 +98,125 @@ public class QuestController : MonoBehaviour
         return false;
     }
 
-    public void SetQuestLog()
-    {
-        title.text = giver.actualQuest.questTitle;
-        description.text = giver.actualQuest.questDescription;
-        reward.text = "";
-        if (giver.actualQuest.MeatReward > 0)
-            reward.text += "Meat reward: " + giver.actualQuest.MeatReward + "\n";
-        if (giver.actualQuest.WhiteFangReward > 0)
-            reward.text += "White Fang reward: " + giver.actualQuest.WhiteFangReward + "\n";
-        if (giver.actualQuest.GoldFangReward > 0)
-            reward.text += "Gold Fang reward: " + giver.actualQuest.GoldFangReward;
 
-        strength.text = "STRENGTH: " + giver.actualQuest.NeedStrenght;
-        resistance.text = "RESISTANCE: " + giver.actualQuest.NeedResistance;
-        speed.text = "SPEED: " + giver.actualQuest.NeedSpeed;
-        agression.text = "MAXAGRESSION: " + giver.actualQuest.MaxAgresion;
+    public void OpenActualQuestLog()
+    {
+       if(actualQuest != null)
+        {
+            questLog.SetActive(true);
+            SetQuestLog(actualQuest);
+            acceptButton.gameObject.SetActive(false);
+            foreach(Toggle toogle in wolfToggles)
+            {
+                toogle.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            SetEmptyQuestLog();
+            acceptButton.gameObject.SetActive(false);
+            foreach (Toggle toogle in wolfToggles)
+            {
+                toogle.gameObject.SetActive(false);
+            }
+            questLog.SetActive(true);
+        }
+    }
+
+    public void SetQuestLog(Quest quest)
+    {
+        title.text = quest.questTitle;
+        description.text = quest.questDescription;
+        reward.text = "";
+        if (quest.MeatReward > 0)
+            reward.text += "Meat reward: " + quest.MeatReward + "\n";
+        if (quest.WhiteFangReward > 0)
+            reward.text += "White Fang reward: " + quest.WhiteFangReward + "\n";
+        if (quest.GoldFangReward > 0)
+            reward.text += "Gold Fang reward: " + quest.GoldFangReward;
+
+        strength.text = "STRENGTH: " + quest.NeedStrenght;
+        resistance.text = "RESISTANCE: " + quest.NeedResistance;
+        speed.text = "SPEED: " + quest.NeedSpeed;
+        agression.text = "MAXAGRESSION: " + quest.MaxAgresion;
+    }
+
+    public void SetEmptyQuestLog()
+    {
+        title.text = "QUESTLOG";
+        description.text = "You don't have active quest.";
+        reward.text = "";
+        
+        strength.text = "STRENGTH: ";
+        resistance.text = "RESISTANCE: ";
+        speed.text = "SPEED: ";
+        agression.text = "MAXAGRESSION: ";
     }
 
     public void AcceptQuest()
     {
-        CloseQuestLog();
+        if (!wolfToggles[0].isOn && !wolfToggles[1].isOn && !wolfToggles[2].isOn &&
+            !wolfToggles[3].isOn && !wolfToggles[4].isOn)
+            return;
+        else
+        {
+            giver.actualQuest.questStatus = Quest.status.ACTIVE;
+            actualQuestGiver = giver;
+            actualQuest = actualQuestGiver.actualQuest;
+            CloseQuestLog();
 
+            int i = 0;
+            foreach (Wolf wolf in player.GetComponentsInChildren<Wolf>())
+            {
+                if (!wolfToggles[i].isOn)
+                    wolf.gameObject.SetActive(false);
+                i++;
+            }
+        }
     }
 
     public void CloseQuestLog()
     {
+        acceptButton.gameObject.SetActive(true);
+        foreach (Toggle toogle in wolfToggles)
+        {
+            toogle.gameObject.SetActive(true);
+        }
         questLog.gameObject.SetActive(false);
+    }
+
+    public bool CheckIfCompleted()
+    {
+        if (actualQuest.questStatus == Quest.status.SUCCED)
+            return true;
+        return false;
+    }
+
+    public void QuestCompleted()
+    {
+        foreach (Wolf wolf in wolfs)
+        {
+            wolf.gameObject.SetActive(true);
+        }
+
+        hud.Meat += actualQuest.MeatReward;
+        hud.WhiteFangs += actualQuest.WhiteFangReward;
+        hud.GoldFangs += actualQuest.GoldFangReward;
+
+        actualQuest = null;
+
+
+        SetEmptyQuestLog();
+        title.text = "MISSION COMPLETED";
+        description.text = "You have completed mission.";
+        acceptButton.gameObject.SetActive(false);
+        foreach (Toggle toogle in wolfToggles)
+        {
+            toogle.gameObject.SetActive(false);
+        }
+        questLog.SetActive(true);
+
+
     }
 
     private bool IfInRatio(QuestGiver giver)
