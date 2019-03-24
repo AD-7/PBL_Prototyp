@@ -8,9 +8,10 @@ public class HUDController : MonoBehaviour
 {
     Evolution actualSkills1;
     Evolution actualSkills2;
-    public Text numberOfMeat;
-    public Text numberOfWhiteFangs;
-    public Text numberOfGoldFangs;
+    public Text numberOfMeatText;
+    public Text numberOfWhiteFangsText;
+    public Text numberOfGoldFangsText;
+    public Text numerOfMeatConsumption;
     public int Meat=200, WhiteFangs=100, GoldFangs=0;
     public Button wolf1button,wolf2button, wolf3button, wolf4button, wolf5button;
     public GameObject wolf1,wolf2,wolf3,wolf4,wolf5;
@@ -27,6 +28,8 @@ public class HUDController : MonoBehaviour
     public Text cost1, cost2;
     public Button choose1, choose2 , close;
     public Text notenough;
+    int consumption = 0;
+    float counter = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +42,10 @@ public class HUDController : MonoBehaviour
         choose1.onClick.AddListener(choose1Clicked);
         choose2.onClick.AddListener(choose2Clicked);
         close.onClick.AddListener(CloseClicked);
-        numberOfMeat.text = Meat.ToString();
-        numberOfWhiteFangs.text = WhiteFangs.ToString();
-        numberOfGoldFangs.text = GoldFangs.ToString();
+        numberOfMeatText.text = Meat.ToString();
+        numberOfWhiteFangsText.text = WhiteFangs.ToString();
+        numberOfGoldFangsText.text = GoldFangs.ToString();
+        
         wolfScreen.gameObject.SetActive(false);
         notenough.gameObject.SetActive(false);
         wolfScreenTitle = wolfScreen.GetComponentInChildren<Text>();
@@ -50,14 +54,38 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         if(wolfScreen.gameObject.active && (Input.GetMouseButton(1) || Input.GetButton("Cancel")))
         {
             wolfScreen.SetActive(false);
             notenough.gameObject.SetActive(false);
         }
-        numberOfMeat.text = Meat.ToString();
-        numberOfWhiteFangs.text = WhiteFangs.ToString();
-        numberOfGoldFangs.text = GoldFangs.ToString();
+        numberOfMeatText.text = Meat.ToString();
+        numberOfWhiteFangsText.text = WhiteFangs.ToString();
+        numberOfGoldFangsText.text = GoldFangs.ToString();
+
+        #region meat consumption
+
+        
+        
+        consumption = wolf1.GetComponent<Wolf>().strength + wolf2.GetComponent<Wolf>().strength + wolf3.GetComponent<Wolf>().strength + wolf4.GetComponent<Wolf>().strength + wolf5.GetComponent<Wolf>().strength;
+        consumption = consumption / 25;
+        consumption *= 2;
+  
+        numerOfMeatConsumption.text = "-" +  consumption.ToString() + " /40s";
+        Debug.Log(counter);
+        if (counter >= 40)
+        {
+            Meat -= consumption;
+            counter = 0;
+        }
+        else
+        {
+            counter += Time.deltaTime;
+        }
+
+        #endregion
+
     }
     
     void Wolf1Clicked()
