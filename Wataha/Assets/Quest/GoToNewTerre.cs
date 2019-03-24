@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToBlackSmith : Quest
+public class GoToNewTerre : Quest
 {
 
     public GameObject questDestination;

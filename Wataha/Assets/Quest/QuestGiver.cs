@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class QuestGiver : MonoBehaviour
 {
+    public List<Quest> questsNeedToStart;
 
     public List<Quest> questsList;
     public List<Quest> questCompleted;
     public Quest actualQuest;
 
+    public GameObject reward;
+
     void Start()
     {
-        actualQuest = questsList[0];
+        if(questsList.Count > 0)
+            actualQuest = questsList[0];
     }
 
     // Update is called once per frame
@@ -20,6 +24,9 @@ public class QuestGiver : MonoBehaviour
         if(actualQuest!=null)
             if (actualQuest.questStatus.Equals(Quest.status.SUCCED))
                 CompletedQuest();
+
+        if (actualQuest == null && reward != null)
+            reward.SetActive(false);
     }
 
     public void CompletedQuest()

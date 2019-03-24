@@ -26,7 +26,7 @@ public class QuestController : MonoBehaviour
 
     void Start()
     {
-        giver = givers[0];
+        giver = null;
         questLog.SetActive(false);
 
         acceptButton.onClick.AddListener(AcceptQuest);
@@ -59,9 +59,9 @@ public class QuestController : MonoBehaviour
         {
             questLog.SetActive(false);
             giver = null;
-            
+
         }
-        else if (giver != null && IfInRatio(giver) && Input.GetButton("Use"))
+        else if (giver != null && IfInRatio(giver) && Input.GetButton("Use") && actualQuest == null)
         {
             if(giver.actualQuest != null)
             {
@@ -216,18 +216,19 @@ public class QuestController : MonoBehaviour
         }
         questLog.SetActive(true);
 
-
     }
 
     private bool IfInRatio(QuestGiver giver)
     {
 
         if (
-             (player.transform.position.x - giver.transform.position.x) <  5.0f &&
+             (player.transform.position.x - giver.transform.position.x) < 5.0f &&
              (player.transform.position.x - giver.transform.position.x) > -5.0f &&
-             (player.transform.position.z - giver.transform.position.z) <  5.0f &&
+             (player.transform.position.z - giver.transform.position.z) < 5.0f &&
              (player.transform.position.z - giver.transform.position.z) > -5.0f)
+        {
             return true;
+        }
         return false;
     }
 
