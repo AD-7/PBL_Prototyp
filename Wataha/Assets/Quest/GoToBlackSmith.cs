@@ -29,7 +29,11 @@ public class GoToBlackSmith : Quest
              (wataha.transform.position.x - questDestination.transform.position.x) > -5.0f &&
              (wataha.transform.position.z - questDestination.transform.position.z) < 5.0f &&
              (wataha.transform.position.z - questDestination.transform.position.z) > -5.0f)
-            return true;
+        {
+
+          return true;
+        }
+          
         return false;
     }
 }
