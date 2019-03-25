@@ -43,7 +43,7 @@ public class CollectBigMushrooms : Quest
         {
             if(IfInRatioFinish() && Input.GetButton("Use") && questStatus == status.ACTIVE)
             {
-                this.questStatus = status.SUCCED;
+                questSucced();
             }
             
         }

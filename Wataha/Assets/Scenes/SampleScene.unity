@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8380,7 +8380,7 @@ Transform:
   m_Children:
   - {fileID: 1749207984}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &587865399
 BoxCollider:
@@ -12591,14 +12591,12 @@ Transform:
   - {fileID: 1899324603}
   - {fileID: 823576698}
   - {fileID: 1725394135}
-  - {fileID: 1582741140}
   - {fileID: 1600135170}
   - {fileID: 873367487}
   - {fileID: 1497094420}
   - {fileID: 938300185}
   - {fileID: 893353091}
   - {fileID: 587865398}
-  - {fileID: 1117084643}
   m_Father: {fileID: 740462138}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12634,7 +12632,7 @@ Transform:
   m_Children:
   - {fileID: 780968616}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &873367488
 BoxCollider:
@@ -12897,7 +12895,7 @@ Transform:
   m_Children:
   - {fileID: 1302589768}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &893353092
 BoxCollider:
@@ -13621,7 +13619,7 @@ Transform:
   m_Children:
   - {fileID: 1182712012}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &938300186
 BoxCollider:
@@ -15687,6 +15685,8 @@ Transform:
   - {fileID: 1267980942}
   - {fileID: 1027291062}
   - {fileID: 1886464568}
+  - {fileID: 1582741140}
+  - {fileID: 1117084643}
   m_Father: {fileID: 866873658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16357,12 +16357,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117084642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.9899993, y: 22.61705, z: -38.01847}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: -4.406399, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1396348422}
-  m_Father: {fileID: 866873658}
-  m_RootOrder: 13
+  m_Father: {fileID: 1071172913}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1117084644
 BoxCollider:
@@ -21027,9 +21027,10 @@ MonoBehaviour:
   questsNeedToStart: {fileID: 209317097}
   questsList:
   - {fileID: 1307651012}
+  - {fileID: 1504734032}
   questCompleted: []
   actualQuest: {fileID: 0}
-  reward: {fileID: 0}
+  reward: {fileID: 1071172912}
   mark: {fileID: 1842372345}
 --- !u!65 &1401860601
 BoxCollider:
@@ -21753,7 +21754,7 @@ Transform:
   m_Children:
   - {fileID: 982199730}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1497094421
 BoxCollider:
@@ -21905,6 +21906,69 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502877284}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1504734030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504734031}
+  - component: {fileID: 1504734032}
+  m_Layer: 0
+  m_Name: Quest1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504734031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504734030}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2089127917}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504734032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504734030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14124628c6fb1ea469cc74c711e7d2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 3
+  questTitle: Bring gold fang
+  questDescription: Can you help me? I need 10 gold fangs to exchange it for medicine.
+    If you collect it, bring them to me and i give you some meat and  cut down tree
+    that block pass to canyon.
+  questStatus: 0
+  questStage: 0
+  questFinalStage: 0
+  questCollectedItems: 0
+  questDestination: {fileID: 1401860598}
+  NeedStrenght: 5
+  NeedResistance: 3
+  NeedSpeed: 3
+  MaxAgresion: 80
+  MeatReward: 200
+  WhiteFangReward: 0
+  GoldFangReward: 0
+  questItems: []
+  hoManyGoldFang: 10
+  hud: {fileID: 124450684}
 --- !u!1 &1507490586
 GameObject:
   m_ObjectHideFlags: 0
@@ -22844,12 +22908,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582741139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.147004, y: 22.61705, z: -38.01847}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: -6.2493935, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71725859}
-  m_Father: {fileID: 866873658}
-  m_RootOrder: 6
+  m_Father: {fileID: 1071172913}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1582741141
 BoxCollider:
@@ -23253,7 +23317,7 @@ Transform:
   m_Children:
   - {fileID: 2107094433}
   m_Father: {fileID: 866873658}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1600135171
 BoxCollider:
@@ -29403,6 +29467,7 @@ Transform:
   - {fileID: 1295080929}
   - {fileID: 794357912}
   - {fileID: 1307651013}
+  - {fileID: 1504734031}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
