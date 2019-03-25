@@ -12,7 +12,7 @@ public class HUDController : MonoBehaviour
     public Text numberOfWhiteFangsText;
     public Text numberOfGoldFangsText;
     public Text numerOfMeatConsumption;
-    public int Meat=200, WhiteFangs=100, GoldFangs=0;
+    public int Meat=200, WhiteFangs=100, GoldFangs=10;
     public Button wolf1button,wolf2button, wolf3button, wolf4button, wolf5button;
     public GameObject wolf1,wolf2,wolf3,wolf4,wolf5;
    private GameObject actualWolf;
