@@ -11495,8 +11495,8 @@ MonoBehaviour:
   questFinalStage: 0
   questCollectedItems: 0
   questDestination: {fileID: 1486229669}
-  NeedStrenght: 3
-  NeedResistance: 0
+  NeedStrenght: 10
+  NeedResistance: 13
   NeedSpeed: 3
   MaxAgresion: 100
   MeatReward: 30
