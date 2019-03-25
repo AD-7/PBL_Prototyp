@@ -19,9 +19,13 @@ public class CollectBigMushrooms : Quest
     // Update is called once per frame
     void Update()
     {
-        if (IfInRatio())
+        if (IfInRatio() && questStatus == status.ACTIVE)
         {
-            buttonInfo.gameObject.SetActive(true);
+           buttonInfo.gameObject.SetActive(true);
+        }
+        else
+        {
+            buttonInfo.gameObject.SetActive(false);
         }
 
    }
@@ -30,11 +34,11 @@ public bool IfInRatio()
     {
         for(int i =0; i<4; i++)
         {
-         if(
+            if(
             (wataha.transform.position.x - questItems[i].transform.position.x) < 3.0f &&
             (wataha.transform.position.x - questItems[i].transform.position.x) > -3.0f &&
-              (wataha.transform.position.x - questItems[i].transform.position.x) < 3.0f &&
-                (wataha.transform.position.x - questItems[i].transform.position.x) > -3.0f)
+              (wataha.transform.position.z - questItems[i].transform.position.z) < 3.0f &&
+                (wataha.transform.position.z - questItems[i].transform.position.z) > -3.0f)
             {
                 return true;
             }

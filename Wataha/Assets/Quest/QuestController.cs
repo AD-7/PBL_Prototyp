@@ -225,7 +225,12 @@ public class QuestController : MonoBehaviour
         hud.GoldFangs += actualQuest.GoldFangReward;
 
         actualQuest = null;
-
+        int i = 0;
+        foreach (Wolf wolf in wolfs)
+        {
+            wolfToggles[i].isOn = false;
+            i++;
+        }
 
         SetEmptyQuestLog();
         title.text = "MISSION COMPLETED";
