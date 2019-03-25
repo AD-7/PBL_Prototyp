@@ -17,7 +17,7 @@ public class Moving : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            position.transform.Translate(new Vector3(0, 0, 0.1f));
+            position.transform.Translate(new Vector3(0, 0, 0.08f));
         }
         if (Input.GetKey(KeyCode.D))
         {
