@@ -38,26 +38,32 @@ public class Wolf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Evolution first = new Evolution(2, 1, 1, 1, 50, 0, 0);
+        Evolution first = new Evolution(2, 1, 0, 0, 50, 0, 0);
 
-        Evolution second = new Evolution(1, 2, 1, 1, 50, 0, 0);
+        Evolution second = new Evolution(1, 2, 0, 0, 50, 0, 0);
+
         skills.Add(first);
         skills.Add(second);
-     
-        for(int i=0; i < 20; i++)
-        {
-            for(int j=0; j < 2; j++)
-            {
-               
-                 int tmp = rand.Next(0, 2);
-                int tmp2 = rand.Next(0, 5);
-                int tmp3 = rand.Next(0, 1);
-                int tmp4 = rand.Next(0, 3);
-                skills.Add(new Evolution(((skills[skills.Count - 1].strength ) + (tmp2*tmp)), ((skills[skills.Count - 1].resistance ) + (tmp2 * tmp)), ((skills[skills.Count - 1].speed ) + (tmp3* tmp4)), ((skills[skills.Count - 1].agression ) + (tmp4 * tmp3)), skills[skills.Count - 1].costM* (tmp + 1), skills[skills.Count - 1].costWF * (tmp + 1), skills[skills.Count - 1].costGF * (tmp+1)));
-            }
-          
 
-        }
+        skills.Add(new Evolution(5,5,0,0,70,10,0));
+        skills.Add(new Evolution(0,0,2,2,90,20,0));
+
+        skills.Add(new Evolution(5,2,0,5,10,50,10));
+        skills.Add(new Evolution(2,8,2,0,20,50,5));
+
+        skills.Add(new Evolution(0, 0, 6, 5, 80, 20, 10));
+        skills.Add(new Evolution(8, 5, 0, 0, 50, 50, 0));
+
+        skills.Add(new Evolution(5, 2, 0, 5, 10, 50, 10));
+        skills.Add(new Evolution(2, 8, 2, 0, 20, 50, 5));
+
+        skills.Add(new Evolution(10, 2, 0, 5, 100, 30, 10));
+        skills.Add(new Evolution(2, 10, 5, 0, 100, 30, 15));
+
+        skills.Add(new Evolution(8, 12, 10, 1, 150, 20, 10));
+        skills.Add(new Evolution(9, 12, 2, 15, 200, 50, 0));
+
+
 
     }
 
