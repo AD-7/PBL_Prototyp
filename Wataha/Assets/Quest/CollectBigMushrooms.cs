@@ -27,6 +27,7 @@ public class CollectBigMushrooms : Quest
                 buttonInfo.gameObject.SetActive(true);
                 if (Input.GetKey(KeyCode.E))
                 {
+                    if(ObjectInRatio().active)
                     mushroomsLeft -= 1;
                     ObjectInRatio().SetActive(false);
                 }
