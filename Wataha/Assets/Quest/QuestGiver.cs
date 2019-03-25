@@ -38,7 +38,8 @@ public class QuestGiver : MonoBehaviour
         }
         else
         {
-            actualQuest = null;
+          actualQuest = null;
+            this.gameObject.SetActive(false);
         }
     }
 }
