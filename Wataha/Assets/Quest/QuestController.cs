@@ -187,7 +187,8 @@ public class QuestController : MonoBehaviour
             }
 
             giver.mark.text = " ";
-            actualQuest.questDestination.GetComponentInChildren<TextMesh>().text = "?";
+            if (actualQuest.questDestination !=null)
+             actualQuest.questDestination.GetComponentInChildren<TextMesh>().text = "?";
 
         }
     }
