@@ -1746,8 +1746,8 @@ MonoBehaviour:
   numberOfWhiteFangsText: {fileID: 2075367753}
   numberOfGoldFangsText: {fileID: 4297585}
   numerOfMeatConsumption: {fileID: 2033152662}
-  Meat: 150
-  WhiteFangs: 100
+  Meat: 100
+  WhiteFangs: 50
   GoldFangs: 0
   wolf1button: {fileID: 833285924}
   wolf2button: {fileID: 329198254}
@@ -19482,10 +19482,10 @@ MonoBehaviour:
   questFinalStage: 0
   questCollectedItems: 0
   questDestination: {fileID: 1401860598}
-  NeedStrenght: 5
+  NeedStrenght: 12
   NeedResistance: 5
-  NeedSpeed: 5
-  MaxAgresion: 100
+  NeedSpeed: 10
+  MaxAgresion: 97
   MeatReward: 50
   WhiteFangReward: 20
   GoldFangReward: 10
