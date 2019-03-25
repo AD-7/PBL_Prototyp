@@ -28,8 +28,11 @@ public class HUDController : MonoBehaviour
     public Text cost1, cost2;
     public Button choose1, choose2 , close;
     public Text notenough;
+    public Text dieInfo;
     int consumption = 0;
     float counter = 0.0f;
+    float dieCounter = 60.0f;
+    int secondsTodie = 60;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,7 @@ public class HUDController : MonoBehaviour
         
         wolfScreen.gameObject.SetActive(false);
         notenough.gameObject.SetActive(false);
+        dieInfo.gameObject.SetActive(false);
         wolfScreenTitle = wolfScreen.GetComponentInChildren<Text>();
     }
 
@@ -73,17 +77,48 @@ public class HUDController : MonoBehaviour
         consumption *= 2;
   
         numerOfMeatConsumption.text = "-" +  consumption.ToString() + " /40s";
-        Debug.Log(counter);
+        
         if (counter >= 40)
         {
-            Meat -= consumption;
+            if(Meat > 0)
+            {
+                Meat -= consumption;
+            }
+            else
+            {
+                Meat = 0;
+            }
+          
             counter = 0;
         }
         else
         {
             counter += Time.deltaTime;
         }
-
+        if(Meat <= 0)
+        {
+          
+            dieCounter -= Time.deltaTime;     
+          secondsTodie= (int)dieCounter;
+            dieInfo.text = "Your wolves die in " + secondsTodie.ToString() + "s";
+            dieInfo.gameObject.SetActive(true);
+           
+            if(secondsTodie <= 0)
+            {
+                Destroy(wolf1, 1);
+                Destroy(wolf2, 1);
+                Destroy(wolf3, 1);
+                Destroy(wolf4, 1);
+                Destroy(wolf5, 1);
+                // GameOver();  // okno z przegraną
+            }
+        }
+        else 
+        {
+            dieCounter = 60.0f;
+            dieInfo.gameObject.SetActive(false);
+        }
+      
         #endregion
 
     }

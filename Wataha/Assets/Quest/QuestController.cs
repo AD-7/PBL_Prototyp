@@ -23,7 +23,7 @@ public class QuestController : MonoBehaviour
     private QuestGiver giver;
     private QuestGiver actualQuestGiver;
     private Quest actualQuest;
-
+    public Text ButtonInfoText;
     void Start()
     {
         giver = null;
@@ -231,8 +231,10 @@ public class QuestController : MonoBehaviour
              (player.transform.position.z - giver.transform.position.z) < 5.0f &&
              (player.transform.position.z - giver.transform.position.z) > -5.0f)
         {
+            ButtonInfoText.gameObject.SetActive(true);
             return true;
         }
+        ButtonInfoText.gameObject.SetActive(false);
         return false;
     }
 
