@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3242,7 +3242,6 @@ Transform:
   - {fileID: 636639162}
   - {fileID: 209317093}
   - {fileID: 1486229670}
-  - {fileID: 1588122985}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8983,7 +8982,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1588122985}
   m_Father: {fileID: 240070547}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18967,8 +18967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: 0
   questTitle: BlackSmith
-  questDescription: You must go to blacksmith to get new saw for man and unlock new
-    forrest.
+  questDescription: You must go to blacksmith to get new saw for man.
   questStatus: 0
   questStage: 0
   questFinalStage: 0
@@ -21695,8 +21694,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2049070535}
-  m_Father: {fileID: 240070547}
-  m_RootOrder: 3
+  m_Father: {fileID: 636639162}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
