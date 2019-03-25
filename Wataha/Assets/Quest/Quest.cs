@@ -18,6 +18,8 @@ public class Quest : MonoBehaviour
     public int questFinalStage;
     public int questCollectedItems;
 
+    public GameObject questDestination;
+
     [Header("Quest Needer")]
     public int NeedStrenght;
     public int NeedResistance;

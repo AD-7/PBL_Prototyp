@@ -5,7 +5,6 @@ using UnityEngine;
 public class GoToBlackSmith : Quest
 {
 
-    public GameObject questDestination;
     private GameObject wataha;
 
     void Start()

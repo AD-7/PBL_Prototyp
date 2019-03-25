@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GoToNewTerre : Quest
 {
-
-    public GameObject questDestination;
     private GameObject wataha;
 
     void Start()
