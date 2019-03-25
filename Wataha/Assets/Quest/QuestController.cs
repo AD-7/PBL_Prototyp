@@ -52,6 +52,7 @@ public class QuestController : MonoBehaviour
         {
             foreach (QuestGiver giverTemp in givers)
             {
+              
                 if (IfInRatio(giverTemp))
                 {
                     giver = giverTemp;
@@ -251,6 +252,7 @@ public class QuestController : MonoBehaviour
              (player.transform.position.z - giver.transform.position.z) < 5.0f &&
              (player.transform.position.z - giver.transform.position.z) > -5.0f)
         {
+            Debug.Log(ButtonInfoText.gameObject.active);
             ButtonInfoText.gameObject.SetActive(true);
             return true;
         }
