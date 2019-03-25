@@ -29,7 +29,7 @@ public class QuestController : MonoBehaviour
     {
         giver = null;
         questLog.SetActive(false);
-
+       
         acceptButton.onClick.AddListener(AcceptQuest);
         closeButton.onClick.AddListener(CloseQuestLog);
         questLogButton.onClick.AddListener(OpenActualQuestLog);
@@ -62,7 +62,7 @@ public class QuestController : MonoBehaviour
             giver = null;
 
         }
-        else if (giver != null && IfInRatio(giver) && Input.GetButton("Use") && actualQuest == null)
+        else if (giver != null && IfInRatio(giver) && Input.GetButton("Use") && actualQuest == null && (giver.questsNeedToStart == null || giver.questsNeedToStart.actualQuest == null))
         {
             if(giver.actualQuest != null)
             {
@@ -174,7 +174,7 @@ public class QuestController : MonoBehaviour
                 if (!wolfToggles[i].isOn)
                     wolf.gameObject.SetActive(false);
                 i++;
-            }
+            }                
         }
     }
 
@@ -218,6 +218,10 @@ public class QuestController : MonoBehaviour
             toogle.gameObject.SetActive(false);
         }
         questLog.SetActive(true);
+
+        SetEmptyQuestLog();
+        title.text = "MISSION COMPLETED";
+        description.text = "You have completed mission.";
 
     }
 
