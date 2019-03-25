@@ -170,9 +170,12 @@ public class QuestController : MonoBehaviour
         if (!wolfToggles[0].isOn && !wolfToggles[1].isOn && !wolfToggles[2].isOn &&
             !wolfToggles[3].isOn && !wolfToggles[4].isOn)
             return;
+        
         else
         {
-            giver.actualQuest.questStatus = Quest.status.ACTIVE;
+           
+           
+                 giver.actualQuest.questStatus = Quest.status.ACTIVE;
             actualQuestGiver = giver;
             actualQuest = actualQuestGiver.actualQuest;
             CloseQuestLog();
@@ -183,7 +186,11 @@ public class QuestController : MonoBehaviour
                 if (!wolfToggles[i].isOn)
                     wolf.gameObject.SetActive(false);
                 i++;
-            }                
+            }               
+            
+            
+           
+          
         }
     }
 
