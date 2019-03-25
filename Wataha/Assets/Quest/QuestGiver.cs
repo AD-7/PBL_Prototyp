@@ -12,16 +12,30 @@ public class QuestGiver : MonoBehaviour
     public Quest actualQuest;
     public GameObject reward;
 
+    public TextMesh mark;
+
     void Start()
     {
         if(questsList.Count > 0)
             actualQuest = questsList[0];
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(actualQuest!=null)
+        if (questsNeedToStart != null && questsNeedToStart.actualQuest == null &&
+            actualQuest != null && actualQuest.questStatus == Quest.status.INACTIVE && mark.text != "?")
+            mark.text = "!";
+        if (questsNeedToStart == null && actualQuest !=null && 
+            actualQuest.questStatus == Quest.status.INACTIVE && mark.text != "?") 
+            mark.text = "!";
+        if (questsNeedToStart != null && questsNeedToStart.actualQuest != null && mark.text != "?" )
+            mark.text = "";
+
+
+        if (actualQuest!=null)
             if (actualQuest.questStatus.Equals(Quest.status.SUCCED))
                 CompletedQuest();
 

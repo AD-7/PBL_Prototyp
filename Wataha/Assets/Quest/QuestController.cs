@@ -173,9 +173,7 @@ public class QuestController : MonoBehaviour
         
         else
         {
-           
-           
-                 giver.actualQuest.questStatus = Quest.status.ACTIVE;
+            giver.actualQuest.questStatus = Quest.status.ACTIVE;
             actualQuestGiver = giver;
             actualQuest = actualQuestGiver.actualQuest;
             CloseQuestLog();
@@ -186,11 +184,11 @@ public class QuestController : MonoBehaviour
                 if (!wolfToggles[i].isOn)
                     wolf.gameObject.SetActive(false);
                 i++;
-            }               
-            
-            
-           
-          
+            }
+
+            giver.mark.text = " ";
+            actualQuest.questDestination.GetComponentInChildren<TextMesh>().text = "?";
+
         }
     }
 
@@ -214,6 +212,7 @@ public class QuestController : MonoBehaviour
 
     public void QuestCompleted()
     {
+        actualQuest.questDestination.GetComponentInChildren<TextMesh>().text = " "; 
         closeWin = false;
         foreach (Wolf wolf in wolfs)
         {
@@ -236,11 +235,6 @@ public class QuestController : MonoBehaviour
             toogle.gameObject.SetActive(false);
         }
         questLog.SetActive(true);
-
-        SetEmptyQuestLog();
-        title.text = "MISSION COMPLETED";
-        description.text = "You have completed mission.";
-
     }
 
     private bool IfInRatio(QuestGiver giver)
