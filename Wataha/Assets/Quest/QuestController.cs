@@ -76,7 +76,9 @@ public class QuestController : MonoBehaviour
         if(actualQuest!=null && actualQuestGiver != null && CheckIfCompleted())
         {
             QuestCompleted();
+           
         }
+    
     }
 
 
@@ -206,7 +208,7 @@ public class QuestController : MonoBehaviour
         hud.WhiteFangs += actualQuest.WhiteFangReward;
         hud.GoldFangs += actualQuest.GoldFangReward;
 
-        actualQuest = null;
+       
 
 
         SetEmptyQuestLog();
@@ -218,7 +220,7 @@ public class QuestController : MonoBehaviour
             toogle.gameObject.SetActive(false);
         }
         questLog.SetActive(true);
-
+        actualQuest = null;
     }
 
     private bool IfInRatio(QuestGiver giver)

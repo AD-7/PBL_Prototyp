@@ -16,7 +16,7 @@ public class GoToBlackSmith : Quest
     // Update is called once per frame
     void Update()
     {
-        if (IfInRatio() && Input.GetButton("Use"))
+        if (IfInRatio() && Input.GetButton("Use") && questStatus == status.ACTIVE)
             this.questStatus = status.SUCCED;
     }
 
