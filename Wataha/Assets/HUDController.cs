@@ -73,12 +73,12 @@ public class HUDController : MonoBehaviour
         
         
         consumption = wolf1.GetComponent<Wolf>().strength + wolf2.GetComponent<Wolf>().strength + wolf3.GetComponent<Wolf>().strength + wolf4.GetComponent<Wolf>().strength + wolf5.GetComponent<Wolf>().strength;
-        consumption = consumption / 25;
+        consumption = consumption / 20;
         consumption *= 2;
   
-        numerOfMeatConsumption.text = "-" +  consumption.ToString() + " /40s";
+        numerOfMeatConsumption.text = "-" +  consumption.ToString() + " /20s";
         
-        if (counter >= 40)
+        if (counter >= 20)
         {
             if(Meat > 0)
             {
