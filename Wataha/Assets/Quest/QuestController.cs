@@ -24,6 +24,7 @@ public class QuestController : MonoBehaviour
     private QuestGiver actualQuestGiver;
     private Quest actualQuest;
     public Text ButtonInfoText;
+    public Text done_all;
     void Start()
     {
         giver = null;
@@ -67,6 +68,7 @@ public class QuestController : MonoBehaviour
             {
                 ToogleWolf();
                 SetQuestLog(giver.actualQuest);
+                done_all.text = giver.GetComponent<QuestGiver>().questCompleted.Count.ToString()  + "/" + giver.GetComponent<QuestGiver>().questsList.Count.ToString();
                 questLog.SetActive(true);
             }
         }
@@ -139,6 +141,7 @@ public class QuestController : MonoBehaviour
         resistance.text = "RESISTANCE: " + quest.NeedResistance;
         speed.text = "SPEED: " + quest.NeedSpeed;
         agression.text = "MAXAGRESSION: " + quest.MaxAgresion;
+       
     }
 
     public void SetEmptyQuestLog()
