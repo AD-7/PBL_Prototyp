@@ -19,14 +19,34 @@ public class CollectBigMushrooms : Quest
     // Update is called once per frame
     void Update()
     {
-        if (IfInRatio() && questStatus == status.ACTIVE)
+        Debug.Log(mushroomsLeft);
+        if (mushroomsLeft > 0)
         {
-           buttonInfo.gameObject.SetActive(true);
+            if (IfInRatio() && questStatus == status.ACTIVE)
+            {
+                buttonInfo.gameObject.SetActive(true);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    mushroomsLeft -= 1;
+                    ObjectInRatio().SetActive(false);
+                }
+
+
+            }
+            else
+            {
+                buttonInfo.gameObject.SetActive(false);
+            }
         }
         else
         {
-            buttonInfo.gameObject.SetActive(false);
+            if(IfInRatioFinish() && Input.GetButton("Use") && questStatus == status.ACTIVE)
+            {
+                this.questStatus = status.SUCCED;
+            }
+            
         }
+      
 
    }
 
@@ -45,6 +65,40 @@ public bool IfInRatio()
 
             
         }
+        return false;
+    }
+
+    public GameObject ObjectInRatio()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (
+            (wataha.transform.position.x - questItems[i].transform.position.x) < 3.0f &&
+            (wataha.transform.position.x - questItems[i].transform.position.x) > -3.0f &&
+              (wataha.transform.position.z - questItems[i].transform.position.z) < 3.0f &&
+                (wataha.transform.position.z - questItems[i].transform.position.z) > -3.0f)
+            {
+                return questItems[i];
+            }
+
+
+        }
+        return null;
+    }
+
+    public bool IfInRatioFinish()
+    {
+
+        if (
+             (wataha.transform.position.x - questDestination.transform.position.x) < 5.0f &&
+             (wataha.transform.position.x - questDestination.transform.position.x) > -5.0f &&
+             (wataha.transform.position.z - questDestination.transform.position.z) < 5.0f &&
+             (wataha.transform.position.z - questDestination.transform.position.z) > -5.0f)
+        {
+
+            return true;
+        }
+
         return false;
     }
 
