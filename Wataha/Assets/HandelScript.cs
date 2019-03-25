@@ -32,6 +32,7 @@ public class HandelScript : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("enter");
         if (!isOpened) {
             isOpened = true;
             OpenHandelWindow();
