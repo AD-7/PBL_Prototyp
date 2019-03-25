@@ -13,7 +13,7 @@ public class CollectBigMushrooms : Quest
     {
         buttonInfo.gameObject.SetActive(false);
         wataha = GameObject.FindGameObjectWithTag("Player");
-        mushroomsLeft = this.questItems.Length;
+        mushroomsLeft = 5;
     }
 
     // Update is called once per frame
