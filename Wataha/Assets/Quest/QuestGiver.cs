@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestGiver : MonoBehaviour
 {
-    public List<Quest> questsNeedToStart;
+    public QuestGiver questsNeedToStart;
 
     public List<Quest> questsList;
     public List<Quest> questCompleted;
     public Quest actualQuest;
-
     public GameObject reward;
 
     void Start()
