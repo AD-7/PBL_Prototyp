@@ -25,11 +25,15 @@ public class QuestController : MonoBehaviour
     private Quest actualQuest;
     public Text ButtonInfoText;
     public Text done_all;
+
+    private bool closeWin;
     void Start()
     {
         giver = null;
         questLog.SetActive(false);
-       
+        closeWin = true;
+
+
         acceptButton.onClick.AddListener(AcceptQuest);
         closeButton.onClick.AddListener(CloseQuestLog);
         questLogButton.onClick.AddListener(OpenActualQuestLog);
@@ -55,28 +59,33 @@ public class QuestController : MonoBehaviour
                 }
             }
         }
-
-        if (giver != null && !IfInRatio(giver))
+        if (closeWin)
         {
-            questLog.SetActive(false);
-            giver = null;
-
-        }
-        else if (giver != null && IfInRatio(giver) && Input.GetButton("Use") && actualQuest == null && (giver.questsNeedToStart == null || giver.questsNeedToStart.actualQuest == null))
-        {
-            if(giver.actualQuest != null)
+            if (giver != null && !IfInRatio(giver))
             {
-                ToogleWolf();
-                SetQuestLog(giver.actualQuest);
-                done_all.text = giver.GetComponent<QuestGiver>().questCompleted.Count.ToString()  + "/" + giver.GetComponent<QuestGiver>().questsList.Count.ToString();
-                questLog.SetActive(true);
+                questLog.SetActive(false);
+                giver = null;
+
+            }
+            else if (giver != null && IfInRatio(giver) && Input.GetButton("Use") && actualQuest == null && (giver.questsNeedToStart == null || giver.questsNeedToStart.actualQuest == null))
+            {
+                if (giver.actualQuest != null)
+                {
+                    ToogleWolf();
+                    SetQuestLog(giver.actualQuest);
+                    done_all.text = giver.GetComponent<QuestGiver>().questCompleted.Count.ToString() + "/" + giver.GetComponent<QuestGiver>().questsList.Count.ToString();
+                    questLog.SetActive(true);
+                }
+            }
+
+            if (actualQuest != null && actualQuestGiver != null && CheckIfCompleted())
+            {
+                QuestCompleted();
             }
         }
+      
 
-        if(actualQuest!=null && actualQuestGiver != null && CheckIfCompleted())
-        {
-            QuestCompleted();
-        }
+ 
     }
 
 
@@ -180,6 +189,7 @@ public class QuestController : MonoBehaviour
 
     public void CloseQuestLog()
     {
+        closeWin = true;
         acceptButton.gameObject.SetActive(true);
         foreach (Toggle toogle in wolfToggles)
         {
@@ -197,6 +207,7 @@ public class QuestController : MonoBehaviour
 
     public void QuestCompleted()
     {
+        closeWin = false;
         foreach (Wolf wolf in wolfs)
         {
             wolf.gameObject.SetActive(true);
