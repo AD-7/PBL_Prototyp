@@ -35,10 +35,11 @@ public class HUDController : MonoBehaviour
     float counter = 0.0f;
     float dieCounter = 60.0f;
     int secondsTodie = 60;
+    bool wolfHunting;
     // Start is called before the first frame update
     void Awake()
     {
-
+        wolfHunting = false;
         wolf1button.onClick.AddListener(Wolf1Clicked);
         wolf2button.onClick.AddListener(Wolf2Clicked);
         wolf3button.onClick.AddListener(Wolf3Clicked);
@@ -193,13 +194,17 @@ public class HUDController : MonoBehaviour
 
     void huntingClicked()
     {
-        StartCoroutine(StartCountdown());
+        if (!wolfHunting)
+        {
+            StartCoroutine(StartCountdown());
+            wolfHunting = true;
+        }
     }
 
     float currCountdownValue;
     public IEnumerator StartCountdown(float countdownValue = 10)
     {
-
+        
         MeshRenderer m = wolf5.GetComponent<MeshRenderer>();
         m.enabled = false;
         currCountdownValue = countdownValue;
@@ -223,6 +228,8 @@ public class HUDController : MonoBehaviour
             currCountdownValue2--;
         }
         huntInfo.gameObject.SetActive(false);
+
+        wolfHunting = false;
 
     }
 
