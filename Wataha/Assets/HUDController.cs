@@ -228,7 +228,7 @@ public class HUDController : MonoBehaviour
         float currCountdownValue2 = 4;
         while (currCountdownValue2 > 0)
         {
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(1.0f);
             currCountdownValue2--;
         }
         huntInfo.gameObject.SetActive(false);
