@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12038,8 +12038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: 1
-  questTitle: Check new terrain
-  questDescription: Now we open new terrain for. Just go and check it.
+  questTitle: Blacksmith and horrible lea.
+  questDescription: Recentyly we open new road tolea but i'm scary to go there. Go  there     for
+    me. If you help me and get material for saw. I will create this saw for you.
   questStatus: 0
   questStage: 0
   questFinalStage: 0
@@ -19964,8 +19965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: 0
-  questTitle: BlackSmith
-  questDescription: You must go to blacksmith to get new saw for man.
+  questTitle: Dull Saw
+  questDescription: Help me! You must go to blacksmith to get new saw for me. My old
+    one is dull.
   questStatus: 0
   questStage: 0
   questFinalStage: 0
