@@ -95,8 +95,12 @@ public class QuestController : MonoBehaviour
         int i = 0;
         foreach (Wolf wolf in wolfs)
         {
+            if(wolf.GetComponent<MeshRenderer>().enabled == true)
+            {
             wolfToggles[i].interactable = CheckWolf( wolf);
             i++;
+            }
+         
         }
     }
 
