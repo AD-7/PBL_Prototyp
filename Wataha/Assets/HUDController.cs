@@ -207,6 +207,8 @@ public class HUDController : MonoBehaviour
         
         MeshRenderer m = wolf5.GetComponent<MeshRenderer>();
         m.enabled = false;
+        GameObject text = m.gameObject.GetComponentInChildren<TextMesh>().gameObject;
+        text.SetActive(false);
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)
         {
@@ -216,6 +218,8 @@ public class HUDController : MonoBehaviour
 
         Meat += 10 * wolf5.GetComponent<Wolf>().strength;
         m.enabled = true;
+        text.SetActive(true);
+
 
         huntInfo.gameObject.SetActive(true);
         huntInfo.text = "Hunting was successfull, your pack earned " + 10 * wolf5.GetComponent<Wolf>().strength + " meat";       
