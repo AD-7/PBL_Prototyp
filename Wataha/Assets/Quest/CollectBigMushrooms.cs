@@ -41,7 +41,8 @@ public class CollectBigMushrooms : Quest
         }
         else
         {
-            if(IfInRatioFinish() && Input.GetButton("Use") && questStatus == status.ACTIVE)
+            buttonInfo.gameObject.SetActive(false);
+            if (IfInRatioFinish() && Input.GetButton("Use") && questStatus == status.ACTIVE)
             {
                 questSucced();
             }
