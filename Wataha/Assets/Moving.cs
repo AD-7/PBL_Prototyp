@@ -17,17 +17,17 @@ public class Moving : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            position.transform.Translate(new Vector3(0, 0, 0.08f));
+            position.transform.Translate(new Vector3(0, 0, 0.1f));
         }
         if (Input.GetKey(KeyCode.D))
         {
            position.transform.Translate(new Vector3(0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, 1, 0), 0.5f);
+            position.Rotate(new Vector3(0, 1, 0), 0.7f);
         }
         if (Input.GetKey(KeyCode.A))
         {
             position.transform.Translate(new Vector3(-0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, -1, 0), 0.5f);
+            position.Rotate(new Vector3(0, -1, 0), 0.7f);
         }
         if (Input.GetKey(KeyCode.S))
         {
