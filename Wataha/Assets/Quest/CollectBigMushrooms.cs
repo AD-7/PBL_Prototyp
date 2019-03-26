@@ -19,7 +19,7 @@ public class CollectBigMushrooms : Quest
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(mushroomsLeft);
+        //Debug.Log(mushroomsLeft);
         if (mushroomsLeft > 0)
         {
             if (IfInRatio() && questStatus == status.ACTIVE)
