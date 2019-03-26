@@ -53,7 +53,7 @@ public class CollectBigMushrooms : Quest
 
 public bool IfInRatio()
     {
-        for(int i =0; i<4; i++)
+        for(int i =0; i<5; i++)
         {
             if(
             (wataha.transform.position.x - questItems[i].transform.position.x) < 3.0f &&
@@ -71,7 +71,7 @@ public bool IfInRatio()
 
     public GameObject ObjectInRatio()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             if (
             (wataha.transform.position.x - questItems[i].transform.position.x) < 3.0f &&
