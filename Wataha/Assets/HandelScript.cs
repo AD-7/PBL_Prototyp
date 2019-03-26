@@ -7,7 +7,7 @@ public class HandelScript : MonoBehaviour
 {
     private bool isOpened;
     public GameObject canvas;
-    public int Fangs = 5, MeatToWhiteFangs = 20, MeatToGoldFangs = 20;
+    public int Fangs = 5, MeatToWhiteFangs = 20, MeatToGoldFangs = 30;
     public Text buttonInfoC;
     public Text buttonInfoV;
     private HUDController controller;
