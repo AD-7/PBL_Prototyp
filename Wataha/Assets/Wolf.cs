@@ -38,7 +38,7 @@ public class Wolf : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Evolution first = new Evolution(2, 1, 0, 0, 50, 0, 0);
+        Evolution first = new Evolution(2, 1, 1, 0, 50, 0, 0);
 
         Evolution second = new Evolution(1, 2, 0, 0, 50, 0, 0);
 
