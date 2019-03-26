@@ -194,11 +194,20 @@ public class HUDController : MonoBehaviour
 
     void huntingClicked()
     {
-        if (!wolfHunting)
+        if (!wolfHunting && !wolf5OnlyinQuest())
         {
-            StartCoroutine(StartCountdown());
             wolfHunting = true;
+            StartCoroutine(StartCountdown());
         }
+    }
+
+    bool wolf5OnlyinQuest()
+    {
+        if (wolf5.active == true && wolf1.active == false &&
+           wolf2.active == false && wolf3.active == false &&
+           wolf4.active == false)
+            return true;
+        return false;
     }
 
     float currCountdownValue;
@@ -219,11 +228,10 @@ public class HUDController : MonoBehaviour
         Meat += 10 * wolf5.GetComponent<Wolf>().strength;
         m.enabled = true;
         text.SetActive(true);
-
+        wolfHunting = false;
 
         huntInfo.gameObject.SetActive(true);
         huntInfo.text = "Hunting was successfull, your pack earned " + 10 * wolf5.GetComponent<Wolf>().strength + " meat";       
-
 
         float currCountdownValue2 = 4;
         while (currCountdownValue2 > 0)
@@ -233,7 +241,7 @@ public class HUDController : MonoBehaviour
         }
         huntInfo.gameObject.SetActive(false);
 
-        wolfHunting = false;
+      
 
     }
 

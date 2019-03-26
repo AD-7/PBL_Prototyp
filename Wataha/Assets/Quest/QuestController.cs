@@ -42,7 +42,6 @@ public class QuestController : MonoBehaviour
         {
             wolfs.Add(wolf);
         }
-
     }
 
     // Update is called once per frame
@@ -84,9 +83,6 @@ public class QuestController : MonoBehaviour
                 QuestCompleted();
             }
         }
-      
-
- 
     }
 
 
