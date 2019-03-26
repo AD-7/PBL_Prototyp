@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12038,8 +12038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: 1
-  questTitle: Check new terrain
-  questDescription: Now we open new terrain for. Just go and check it.
+  questTitle: Blacksmith and horrible lea.
+  questDescription: Recentyly we open new road tolea but i'm scary to go there. Go  there
+    for me. If you help me and get material for saw. I will create this saw for you.
   questStatus: 0
   questStage: 0
   questFinalStage: 0
@@ -17319,7 +17320,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 389619407}
   toggleTransition: 1
   graphic: {fileID: 1816082639}
@@ -17586,7 +17587,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 153880055}
   toggleTransition: 1
   graphic: {fileID: 2014541763}
@@ -17628,9 +17629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 124450679}
-  WhiteFangsNumb: 1
-  GoldFangsNumb: 1
-  MeatNumb: 10
+  Fangs: 5
+  MeatToWhiteFangs: 20
+  MeatToGoldFangs: 20
   buttonInfoC: {fileID: 203614519}
   buttonInfoV: {fileID: 676590596}
 --- !u!136 &1149686239
@@ -19277,7 +19278,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 664576780}
   toggleTransition: 1
   graphic: {fileID: 959830062}
@@ -19964,8 +19965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questId: 0
-  questTitle: BlackSmith
-  questDescription: You must go to blacksmith to get new saw for man.
+  questTitle: Dull Saw
+  questDescription: Help me! You must go to blacksmith to get new saw for me. My old
+    one is dull.
   questStatus: 0
   questStage: 0
   questFinalStage: 0
@@ -26420,7 +26422,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1390845167}
   toggleTransition: 1
   graphic: {fileID: 147212205}
@@ -26962,7 +26964,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2053491987}
   toggleTransition: 1
   graphic: {fileID: 587409603}
