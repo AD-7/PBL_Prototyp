@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HandelScript : MonoBehaviour
 {
     private bool isOpened;
     public GameObject canvas;
-    public int WhiteFangsNumb = 1, GoldFangsNumb = 1, MeatNumb = 10;
-
+    public int Fangs = 5, MeatToWhiteFangs = 20, MeatToGoldFangs = 20;
+    public Text buttonInfoC;
+    public Text buttonInfoV;
     private HUDController controller;
     void Start()
     {
@@ -19,19 +21,34 @@ public class HandelScript : MonoBehaviour
     void Update()
     {
         if (isOpened) {
-            if (Input.GetKeyDown(KeyCode.F)) {
-                if (controller.WhiteFangs >= WhiteFangsNumb && controller.GoldFangs >= GoldFangsNumb) {
-                    controller.WhiteFangs -= WhiteFangsNumb;
-                    controller.GoldFangs -= GoldFangsNumb;
-                    controller.Meat += MeatNumb;
-                    Debug.Log("sold");
+           
+            if (Input.GetKeyDown(KeyCode.C)) {
+                if (controller.Meat >= MeatToWhiteFangs ) {
+                    controller.WhiteFangs += Fangs;
+                    controller.Meat -= MeatToWhiteFangs;
+                    
                 }
             }
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                if (controller.Meat >= MeatToGoldFangs)
+                {
+                    controller.GoldFangs += Fangs;
+                    controller.Meat -= MeatToGoldFangs;
+
+                }
+
+            }
+
+
         }
+      
     }
     
     private void OnTriggerEnter(Collider other)
     {
+        buttonInfoC.gameObject.SetActive(true);
+        buttonInfoV.gameObject.SetActive(true);
         Debug.Log("enter");
         if (!isOpened) {
             isOpened = true;
@@ -44,6 +61,8 @@ public class HandelScript : MonoBehaviour
     {
         Debug.Log("exit");
         isOpened = false;
+        buttonInfoC.gameObject.SetActive(false);
+        buttonInfoV.gameObject.SetActive(false);
     }
 
     private void OpenHandelWindow() {
