@@ -13,11 +13,11 @@ public class Moving : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            position.transform.Translate(new Vector3(0, 0, 0.15f));
+            position.transform.Translate(new Vector3(0, 0, 0.1f));
         }
         if (Input.GetKey(KeyCode.D))
         {
