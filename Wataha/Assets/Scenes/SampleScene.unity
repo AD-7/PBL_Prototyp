@@ -6277,7 +6277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b017debc0b400b5418ca56c665c80f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
 --- !u!54 &408697669
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7725,7 +7724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 10
   resistance: 10
-  speed: 10
+  speed: 15
   agression: 40
   energy: 100
 --- !u!1 &528505542
@@ -12879,7 +12878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 456.2, y: -25.399963}
+  m_AnchoredPosition: {x: 456.2, y: -25.400024}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853994643
@@ -17886,7 +17885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 272.5, y: -25.399994}
+  m_AnchoredPosition: {x: 272.5, y: -25.400024}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1177366060

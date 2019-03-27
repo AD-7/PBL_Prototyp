@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Moving : MonoBehaviour
 {
-    public int speed = 5;
     private Transform position;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +15,10 @@ public class Moving : MonoBehaviour
     // Update is called once per frame
     public void FixedUpdate()
     {
+
         if (Input.GetKey(KeyCode.W))
         {
-            position.transform.Translate(new Vector3(0, 0, 0.1f));
+           position.transform.Translate(new Vector3(0, 0, 0.1f));
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -33,6 +34,12 @@ public class Moving : MonoBehaviour
         {
             position.transform.Translate(new Vector3(0f, 0.0f, -0.05f));
            
+        }
+
+        if (Input.GetButton("Sprint"))
+        {
+            position.transform.Translate(new Vector3(0, 0, 0.3f));
+
         }
         //if (Input.GetKey(KeyCode.Space))
         //{
