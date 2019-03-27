@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -213,6 +213,12 @@ public class QuestController : MonoBehaviour
         {
             toogle.gameObject.SetActive(true);
         }
+
+        foreach (Text text in wolfDescribe)
+        {
+            text.gameObject.SetActive(true);
+        }
+
         questLog.gameObject.SetActive(false);
     }
 
@@ -251,6 +257,11 @@ public class QuestController : MonoBehaviour
         foreach (Toggle toogle in wolfToggles)
         {
             toogle.gameObject.SetActive(false);
+        }
+        
+        foreach (Text text in wolfDescribe)
+        {
+            text.gameObject.SetActive(false);
         }
         questLog.SetActive(true);
     }
