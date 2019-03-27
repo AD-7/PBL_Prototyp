@@ -24,12 +24,13 @@ public class CollectBigMushrooms : Quest
         {
             if (IfInRatio() && questStatus == status.ACTIVE)
             {
-                buttonInfo.gameObject.SetActive(true);
+                
                 if (Input.GetKey(KeyCode.E))
                 {
                     if(ObjectInRatio().active)
                     mushroomsLeft -= 1;
                     ObjectInRatio().SetActive(false);
+                    buttonInfo.gameObject.SetActive(false);
                 }
 
 
@@ -62,6 +63,8 @@ public bool IfInRatio()
               (wataha.transform.position.z - questItems[i].transform.position.z) < 3.0f &&
                 (wataha.transform.position.z - questItems[i].transform.position.z) > -3.0f)
             {
+                if(questItems[i].active)
+                   buttonInfo.gameObject.SetActive(true);
                 return true;
             }
 

@@ -62,6 +62,11 @@ public class QuestController : MonoBehaviour
         }
         if (closeWin)
         {
+            if (actualQuest != null && IfInRatio(actualQuest.questDestination) && actualQuest.questStatus == Quest.status.ACTIVE)
+                ButtonInfoText.gameObject.SetActive(true);
+            else
+                ButtonInfoText.gameObject.SetActive(false);
+
             if (giver != null && !IfInRatio(giver))
             {
                 questLog.SetActive(false);
@@ -283,6 +288,21 @@ public class QuestController : MonoBehaviour
         return false;
     }
 
+    private bool IfInRatio(GameObject giver)
+    {
 
-    
+        if (
+             (player.transform.position.x - giver.transform.position.x) < 5.0f &&
+             (player.transform.position.x - giver.transform.position.x) > -5.0f &&
+             (player.transform.position.z - giver.transform.position.z) < 5.0f &&
+             (player.transform.position.z - giver.transform.position.z) > -5.0f)
+        {
+
+            return true;
+        }
+        return false;
+    }
+
+
+
 }
