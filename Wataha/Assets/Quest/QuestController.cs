@@ -13,7 +13,8 @@ public class QuestController : MonoBehaviour
     public Button acceptButton, closeButton, questLogButton;
 
     public List<Toggle> wolfToggles;
-    public List<Wolf> wolfs;
+    public List<Text> wolfDescribe;
+    public List<Wolf> wolves;
 
     public Text strength, resistance, speed, agression;
     public Text title, description, reward;
@@ -40,7 +41,7 @@ public class QuestController : MonoBehaviour
 
         foreach (Wolf wolf in player.GetComponentsInChildren<Wolf>())
         {
-            wolfs.Add(wolf);
+            wolves.Add(wolf);
         }
     }
 
@@ -89,7 +90,7 @@ public class QuestController : MonoBehaviour
     public void ToogleWolf()
     {
         int i = 0;
-        foreach (Wolf wolf in wolfs)
+        foreach (Wolf wolf in wolves)
         {
             if(wolf.GetComponent<MeshRenderer>().enabled == true)
             {
@@ -151,6 +152,16 @@ public class QuestController : MonoBehaviour
         resistance.text = "RESISTANCE: " + quest.NeedResistance;
         speed.text = "SPEED: " + quest.NeedSpeed;
         agression.text = "MAXAGRESSION: " + quest.MaxAgresion;
+
+        int i = 0;
+        foreach(Text wolfText in wolfDescribe)
+        {
+            wolfText.text = "STRENGTH: " + wolves[i].strength + "\n" +
+                             "RESISTANCE: " + wolves[i].resistance + "\n" +
+                             "SPEED: " + wolves[i].speed + "\n" +
+                             "MAGRESSION: " + wolves[i].agression;
+           i++;
+        }
        
     }
 
@@ -216,7 +227,7 @@ public class QuestController : MonoBehaviour
     {
         actualQuest.questDestination.GetComponentInChildren<TextMesh>().text = " "; 
         closeWin = false;
-        foreach (Wolf wolf in wolfs)
+        foreach (Wolf wolf in wolves)
         {
             wolf.gameObject.SetActive(true);
         }
@@ -227,7 +238,7 @@ public class QuestController : MonoBehaviour
 
         actualQuest = null;
         int i = 0;
-        foreach (Wolf wolf in wolfs)
+        foreach (Wolf wolf in wolves)
         {
             wolfToggles[i].isOn = false;
             i++;
