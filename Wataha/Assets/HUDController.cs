@@ -321,7 +321,7 @@ bool wolf5OnlyinQuest()
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
-        EndHuntInfo.gameObject.SetActive(false);
+         EndHuntInfo.gameObject.SetActive(false);
     }
 
     void ProceedActualWolf()
