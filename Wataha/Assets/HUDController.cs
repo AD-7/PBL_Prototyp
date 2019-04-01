@@ -7,6 +7,10 @@ using static Wolf;
 
 public class HUDController : MonoBehaviour
 {
+    public GameObject HuntScene;
+    public GameObject GameScene;
+
+
     Evolution actualSkills1;
     Evolution actualSkills2;
     public Text numberOfMeatText;
@@ -18,6 +22,8 @@ public class HUDController : MonoBehaviour
     public Button wolf1Hunt, wolf2Hunt, wolf3Hunt, wolf4Hunt, wolf5Hunt;
     public GameObject wolf1, wolf2, wolf3, wolf4, wolf5;
     public GameObject wolfHunt;
+
+    public Text wolf1Desc, wolf2Desc, wolf3Desc, wolf4Desc, wolf5Desc;
 
     private GameObject actualWolf;
 
@@ -217,9 +223,23 @@ public class HUDController : MonoBehaviour
     void huntingClicked()
     {
         huntScreen.SetActive(true);
+        setDescribe(wolf1.GetComponent<Wolf>(), wolf1Desc);
+        setDescribe(wolf2.GetComponent<Wolf>(), wolf2Desc);
+        setDescribe(wolf3.GetComponent<Wolf>(), wolf3Desc);
+        setDescribe(wolf4.GetComponent<Wolf>(), wolf4Desc);
+        setDescribe(wolf5.GetComponent<Wolf>(), wolf5Desc);
     }
 
-    bool wolf5OnlyinQuest()
+    void setDescribe(Wolf wolf, Text text)
+    {
+        text.text = "STRENGTH: " + wolf.strength + "\n" +
+                    "RESISTANCE: " + wolf.resistance + "\n" +
+                    "SPEED: " + wolf.speed + "\n" +
+                    "MAGRESSION: " + wolf.agression + "\n" +
+                    "ENERGY: " + wolf.energy;
+    }
+
+bool wolf5OnlyinQuest()
     {
         if (wolf5.active == true && wolf1.active == false &&
            wolf2.active == false && wolf3.active == false &&
@@ -268,26 +288,34 @@ public class HUDController : MonoBehaviour
     public void Wolf1HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf1.GetComponent<Wolf>());
+       HuntScene.gameObject.SetActive(true);
+       GameScene.gameObject.SetActive(false);
     }
 
     public void Wolf2HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
+        HuntScene.gameObject.SetActive(true);
+        GameScene.gameObject.SetActive(false);
     }
 
     public void Wolf3HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
+        HuntScene.gameObject.SetActive(true);
+        GameScene.gameObject.SetActive(false);
     }
-
     public void Wolf4HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
+        HuntScene.gameObject.SetActive(true);
+        GameScene.gameObject.SetActive(false);
     }
-
-    public void Wolf5HuntClicked()
+        public void Wolf5HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
+        HuntScene.gameObject.SetActive(true);
+        GameScene.gameObject.SetActive(false);
     }
 
     void ProceedActualWolf()
