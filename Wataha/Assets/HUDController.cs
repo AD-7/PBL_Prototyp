@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Wolf;
 
@@ -36,6 +37,7 @@ public class HUDController : MonoBehaviour
     float dieCounter = 60.0f;
     int secondsTodie = 60;
     bool wolfHunting;
+   public  WolvesStats wolvesStats;
     // Start is called before the first frame update
     void Awake()
     {
@@ -194,11 +196,17 @@ public class HUDController : MonoBehaviour
 
     void huntingClicked()
     {
-        if (!wolfHunting && !wolf5OnlyinQuest())
-        {
-            wolfHunting = true;
-            StartCoroutine(StartCountdown());
-        }
+        //if (!wolfHunting && !wolf5OnlyinQuest())
+        //{
+        //    wolfHunting = true;
+        //    StartCoroutine(StartCountdown());
+        //}
+       wolvesStats.strength= wolf1.GetComponent<Wolf>().strength;
+        wolvesStats.resistance = wolf1.GetComponent<Wolf>().resistance;
+        wolvesStats.speed = wolf1.GetComponent<Wolf>().speed;
+        wolvesStats.agression = wolf1.GetComponent<Wolf>().agression;
+
+        SceneManager.LoadScene("HuntingScene");
     }
 
     bool wolf5OnlyinQuest()

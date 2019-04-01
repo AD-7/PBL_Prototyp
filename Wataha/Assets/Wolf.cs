@@ -5,7 +5,10 @@ using System;
 public class Wolf : MonoBehaviour
 {
 
-     public int strength = 10;
+
+    private WolvesStats stats = WolvesStats.Instance;
+
+    public int strength = 10;
     public int resistance = 10;
     public int speed = 10;
     public int agression = 100;
@@ -34,10 +37,12 @@ public class Wolf : MonoBehaviour
     }
 
     public  List<Evolution> skills= new List<Evolution>();
+    private object instance;
 
     // Start is called before the first frame update
     void Start()
     {
+
         Evolution first = new Evolution(2, 1, 1, 0, 50, 0, 0);
 
         Evolution second = new Evolution(1, 2, 0, 0, 50, 0, 0);
@@ -63,13 +68,12 @@ public class Wolf : MonoBehaviour
         skills.Add(new Evolution(8, 12, 10, 1, 150, 20, 10));
         skills.Add(new Evolution(9, 12, 2, 15, 200, 50, 0));
 
-
+     
 
     }
+
+  
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
