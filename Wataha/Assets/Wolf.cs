@@ -11,6 +11,7 @@ public class Wolf : MonoBehaviour
     public int agression = 100;
     public int energy= 100;
     System.Random rand = new System.Random();
+    float energyRecoverTime = 5.0f;
     public struct Evolution
     {
         public int strength;
@@ -79,6 +80,26 @@ public class Wolf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.energy < 100)
+        {
+            energyRecoverTime -= Time.deltaTime;
+            if(energyRecoverTime <= 0)
+            {
+                energy += 25;
+                energyRecoverTime = 5.0f;
+            }
+        }
+        else if (energy >100)
+        {
+            energy = 100;
+            energyRecoverTime = 5.0f;
+        }
+        else if(energy <= 0)
+        {
+            energy = 0;
+        }
         
+
+
     }
 }
