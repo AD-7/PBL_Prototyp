@@ -39,18 +39,18 @@ public class HuntingHUD : MonoBehaviour
 
         if (wolfHunt.resistance < 10)
         {
-            timeLeft = 20.0f;
+            timeLeft = 16.0f;
             time.text = "Time left: " + timeLeft;
         }
         else if (wolfHunt.resistance < 15)
         {
-            timeLeft = 25.0f;
+            timeLeft = 22.0f;
             time.text = "Time left: " + timeLeft;
         }
 
         else if (wolfHunt.resistance < 20)
         {
-            timeLeft = 30.0f;
+            timeLeft = 28.0f;
             time.text = "Time left: " + timeLeft;
         }
         else if (wolfHunt.resistance >=20)
@@ -61,17 +61,17 @@ public class HuntingHUD : MonoBehaviour
 
         if(wolfHunt.strength < 10)
         {
-            maxMeatt = 30;
+            maxMeatt = 20;
             maxMeat.text = "Max.meat: " + maxMeatt.ToString();
         }
         else if (wolfHunt.strength < 15)
         {
-            maxMeatt = 80;
+            maxMeatt = 50;
             maxMeat.text = "Max.meat: " + maxMeatt.ToString();
         }
         else if (wolfHunt.strength < 20)
         {
-            maxMeatt = 150;
+            maxMeatt = 100;
             maxMeat.text = "Max.meat: " + maxMeatt.ToString();
         }
         else if (wolfHunt.strength >= 20)
