@@ -67,13 +67,13 @@ public class Wolf : MonoBehaviour
 
     }
 
-    void copyStat(Wolf wolf)
+    public static void copyStat(Wolf wolf1, Wolf wolf)
     {
-        strength = wolf.strength;
-        resistance = wolf.resistance;
-        speed = wolf.speed;
-        agression = wolf.agression;
-        energy = wolf.energy;
+        wolf1.strength = wolf.strength;
+        wolf1.resistance = wolf.resistance;
+        wolf1.speed = wolf.speed;
+        wolf1.agression = wolf.agression;
+        wolf1.energy = wolf.energy;
     }
 
     // Update is called once per frame

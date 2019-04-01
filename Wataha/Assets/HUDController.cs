@@ -15,11 +15,15 @@ public class HUDController : MonoBehaviour
     public Text numerOfMeatConsumption;
     public int Meat = 200, WhiteFangs = 100, GoldFangs = 10;
     public Button wolf1button, wolf2button, wolf3button, wolf4button, wolf5button, huntingButton;
+    public Button wolf1Hunt, wolf2Hunt, wolf3Hunt, wolf4Hunt, wolf5Hunt;
     public GameObject wolf1, wolf2, wolf3, wolf4, wolf5;
+    public GameObject wolfHunt;
+
     private GameObject actualWolf;
 
-    public GameObject wolfScreen;
+    public GameObject wolfScreen, huntScreen;
     public Text strength, resistance, energy, speed, agression;
+
 
     private Text wolfScreenTitle;
     public Text strengthEvo1, strengthEvo2;
@@ -45,6 +49,13 @@ public class HUDController : MonoBehaviour
         wolf3button.onClick.AddListener(Wolf3Clicked);
         wolf4button.onClick.AddListener(Wolf4Clicked);
         wolf5button.onClick.AddListener(Wolf5Clicked);
+
+        wolf1Hunt.onClick.AddListener(Wolf1HuntClicked);
+        wolf2Hunt.onClick.AddListener(Wolf2HuntClicked);
+        wolf3Hunt.onClick.AddListener(Wolf3HuntClicked);
+        wolf4Hunt.onClick.AddListener(Wolf4HuntClicked);
+        wolf5Hunt.onClick.AddListener(Wolf5HuntClicked);
+
         huntingButton.onClick.AddListener(huntingClicked);
         choose1.onClick.AddListener(choose1Clicked);
         choose2.onClick.AddListener(choose2Clicked);
@@ -53,6 +64,7 @@ public class HUDController : MonoBehaviour
         numberOfWhiteFangsText.text = WhiteFangs.ToString();
         numberOfGoldFangsText.text = GoldFangs.ToString();
 
+        huntScreen.SetActive(false);
         wolfScreen.gameObject.SetActive(false);
         notenough.gameObject.SetActive(false);
         dieInfo.gameObject.SetActive(false);
@@ -192,13 +204,18 @@ public class HUDController : MonoBehaviour
 
     }
 
+    //void huntingClicked()
+    //{
+    //    if (!wolfHunting && !wolf5OnlyinQuest())
+    //    {
+    //        wolfHunting = true;
+    //        StartCoroutine(StartCountdown());
+    //    }
+    //}
+
     void huntingClicked()
     {
-        if (!wolfHunting && !wolf5OnlyinQuest())
-        {
-            wolfHunting = true;
-            StartCoroutine(StartCountdown());
-        }
+        huntScreen.SetActive(true);
     }
 
     bool wolf5OnlyinQuest()
@@ -246,6 +263,31 @@ public class HUDController : MonoBehaviour
     }
 
 
+
+    public void Wolf1HuntClicked()
+    {
+        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf1.GetComponent<Wolf>());
+    }
+
+    public void Wolf2HuntClicked()
+    {
+        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
+    }
+
+    public void Wolf3HuntClicked()
+    {
+        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
+    }
+
+    public void Wolf4HuntClicked()
+    {
+        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
+    }
+
+    public void Wolf5HuntClicked()
+    {
+        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
+    }
 
     void ProceedActualWolf()
     {
