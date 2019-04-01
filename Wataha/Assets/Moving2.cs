@@ -18,7 +18,7 @@ public class Moving2 : MonoBehaviour
      
         if (Input.GetKey(KeyCode.W))
         {
-           position.transform.Translate(new Vector3(0, 0, 1.0f * GetComponent<Wolf>().speed * Time.deltaTime));
+           position.transform.Translate(new Vector3(0, 0, 0.9f * GetComponent<Wolf>().speed * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -38,7 +38,7 @@ public class Moving2 : MonoBehaviour
 
         if (Input.GetButton("Sprint"))
         {
-            position.transform.Translate(new Vector3(0, 0, 1.5f * GetComponent<Wolf>().speed * Time.deltaTime));
+            position.transform.Translate(new Vector3(0, 0, 1.2f * GetComponent<Wolf>().speed * Time.deltaTime));
 
         }
         //if (Input.GetKey(KeyCode.Space))
