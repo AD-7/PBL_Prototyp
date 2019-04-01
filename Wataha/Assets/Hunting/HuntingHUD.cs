@@ -110,6 +110,8 @@ public class HuntingHUD : MonoBehaviour
             spawn.enabled = false;
         }
 
+        GameScene.GetComponentInChildren<HUDController>().Meat += meatHuntedd;
+
         GameScene.gameObject.SetActive(true);
         HuntScene.gameObject.SetActive(false);
     }
