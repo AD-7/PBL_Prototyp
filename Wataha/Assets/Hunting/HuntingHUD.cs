@@ -17,9 +17,10 @@ public class HuntingHUD : MonoBehaviour
     public GameObject Info;
     public GameObject GameScene;
     public GameObject HuntScene;
+    public GameObject AnimalManager;
 
-    int meatHuntedd;
-    int maxMeatt;
+    public int meatHuntedd;
+    public int maxMeatt;
     float timeLeft;
     // Start is called before the first frame update
     private void Awake()
@@ -86,9 +87,16 @@ public class HuntingHUD : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         time.text = "Time left: " + timeLeft;
+        meatHuntedText.text = "Meat hunted: " + meatHuntedd;
+        meatHuntedIntheEndText.text = meatHuntedText.text;
 
-        if(timeLeft <= 0)
+        if (timeLeft <= 0 || maxMeatt == meatHuntedd )
         {
+            AnimalManager.SetActive(false);
+            foreach(GameObject animal in GameObject.FindGameObjectsWithTag("Animal"))
+            {
+                GameObject.Destroy(animal);
+            }
             Info.gameObject.SetActive(false);
             EndInfo.gameObject.SetActive(true);
         }
@@ -97,7 +105,10 @@ public class HuntingHUD : MonoBehaviour
     public void ReturnClicked()
     {
 
-
+        foreach (AnimalSpawn spawn in AnimalManager.GetComponentsInChildren<AnimalSpawn>())
+        {
+            spawn.enabled = false;
+        }
 
         GameScene.gameObject.SetActive(true);
         HuntScene.gameObject.SetActive(false);

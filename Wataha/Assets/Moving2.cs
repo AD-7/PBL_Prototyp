@@ -6,6 +6,7 @@ public class Moving2 : MonoBehaviour
 {
     private Transform position;
     private GameObject animal;
+    public HuntingHUD hud;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class Moving2 : MonoBehaviour
 
             if (animal!= null && Vector3.Distance(this.gameObject.transform.position, animal.gameObject.transform.position ) < 2.0f)
             {
+                hud.meatHuntedd += animal.GetComponent<Animal>().meat;
                 GameObject.Destroy(animal);
             }
         }
