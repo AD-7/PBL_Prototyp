@@ -11136,6 +11136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hud: {fileID: 198751168}
+  cameraTrans: {fileID: 188365778}
 --- !u!54 &424070757
 Rigidbody:
   m_ObjectHideFlags: 0

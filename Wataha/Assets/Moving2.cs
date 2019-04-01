@@ -7,6 +7,7 @@ public class Moving2 : MonoBehaviour
     private Transform position;
     private GameObject animal;
     public HuntingHUD hud;
+    public Transform cameraTrans;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class Moving2 : MonoBehaviour
         if (Input.GetButton("Sprint"))
         {
             position.transform.Translate(new Vector3(0, 0, 1.2f * GetComponent<Wolf>().speed * Time.deltaTime));
+            
 
         }
 
