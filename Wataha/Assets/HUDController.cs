@@ -31,7 +31,7 @@ public class HUDController : MonoBehaviour
     public Text speedEvo1, speedEvo2;
     public Text agressionEvo1, agressionEvo2;
     public Text cost1, cost2;
-    public Button choose1, choose2, close;
+    public Button choose1, choose2, close, closeHunt;
     public Text notenough;
     public Text dieInfo;
     public Text huntInfo;
@@ -60,6 +60,7 @@ public class HUDController : MonoBehaviour
         choose1.onClick.AddListener(choose1Clicked);
         choose2.onClick.AddListener(choose2Clicked);
         close.onClick.AddListener(CloseClicked);
+        closeHunt.onClick.AddListener(CloseHuntClicked);
         numberOfMeatText.text = Meat.ToString();
         numberOfWhiteFangsText.text = WhiteFangs.ToString();
         numberOfGoldFangsText.text = GoldFangs.ToString();
@@ -370,7 +371,15 @@ public class HUDController : MonoBehaviour
 
     void CloseClicked()
     {
+
         notenough.gameObject.SetActive(false);
         wolfScreen.gameObject.SetActive(false);
     }
+
+    void CloseHuntClicked()
+    {
+         huntScreen.gameObject.SetActive(false);
+    }
+
+
 }
