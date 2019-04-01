@@ -5,7 +5,7 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
 
-
+    public int meat = 10;
     public float walkSpeed =   10.0f;
     // Start is called before the first frame update
     void Start()
@@ -38,10 +38,10 @@ public class Animal : MonoBehaviour
             float distance = Vector3.Distance(transform.position, other.transform.position);
           
             
-                transform.Translate(-Vector3.forward * walkSpeed * Time.deltaTime);
-           
-          
+                transform.Translate(-Vector3.forward * walkSpeed * Time.deltaTime); 
         }
+
+
     }
 
    
