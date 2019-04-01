@@ -288,40 +288,60 @@ bool wolf5OnlyinQuest()
 
     public void Wolf1HuntClicked()
     {
+        if(wolf1.GetComponent<Wolf>().energy > 50)
+        {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf1.GetComponent<Wolf>());
        HuntScene.gameObject.SetActive(true);
        GameScene.gameObject.SetActive(false);
         EndHuntInfo.gameObject.SetActive(false);
+        }
+      
     }
 
     public void Wolf2HuntClicked()
     {
-        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
+        if (wolf2.GetComponent<Wolf>().energy > 50)
+        {
+         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
         EndHuntInfo.gameObject.SetActive(false);
+        }
+           
     }
 
     public void Wolf3HuntClicked()
     {
-        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
+        if (wolf3.GetComponent<Wolf>().energy > 50)
+        {
+   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
         EndHuntInfo.gameObject.SetActive(false);
+        }
+         
     }
     public void Wolf4HuntClicked()
     {
-        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
+        if (wolf4.GetComponent<Wolf>().energy > 50)
+        {
+   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
         EndHuntInfo.gameObject.SetActive(false);
+        }
+         
     }
         public void Wolf5HuntClicked()
     {
-        Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
+        if (wolf3.GetComponent<Wolf>().energy > 50)
+        {
+   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
          EndHuntInfo.gameObject.SetActive(false);
+        }
+         
     }
 
     void ProceedActualWolf()

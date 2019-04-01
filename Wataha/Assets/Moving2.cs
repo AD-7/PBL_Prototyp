@@ -24,13 +24,13 @@ public class Moving2 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            position.transform.Translate(new Vector3(0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, 1, 0), 1.0f);
+           position.transform.Translate(new Vector3(0.01f, 0.0f, 0.0f));
+            position.Rotate(new Vector3(0, 1, 0), 1.2f);
         }
         if (Input.GetKey(KeyCode.A))
         {
             position.transform.Translate(new Vector3(-0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, -1, 0), 1.0f);
+            position.Rotate(new Vector3(0, -1, 0), 1.2f);
         }
         if (Input.GetKey(KeyCode.S))
         {

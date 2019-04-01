@@ -97,6 +97,8 @@ public class HuntingHUD : MonoBehaviour
     public void ReturnClicked()
     {
 
+
+
         GameScene.gameObject.SetActive(true);
         HuntScene.gameObject.SetActive(false);
     }
