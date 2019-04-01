@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meat: 5
-  walkSpeed: 5
+  walkSpeed: 4
