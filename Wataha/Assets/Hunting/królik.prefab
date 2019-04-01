@@ -106,7 +106,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10.58
+  m_Radius: 20.34
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5395135306110216080
 Rigidbody:
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meat: 5
-  walkSpeed: 10
+  walkSpeed: 5

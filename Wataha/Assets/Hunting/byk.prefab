@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meat: 30
-  walkSpeed: 8
+  walkSpeed: 7
 --- !u!135 &2290290814002689861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 18.64
+  m_Radius: 15.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &959465533950832649
 BoxCollider:
