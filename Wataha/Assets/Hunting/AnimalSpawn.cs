@@ -20,6 +20,11 @@ public class AnimalSpawn : MonoBehaviour
         InvokeRepeating("Spawn3", spawnTime3, spawnTime3);
     }
 
+    public void StartP()
+    {
+        Start();
+    }
+
 
     void Spawn()
     {
