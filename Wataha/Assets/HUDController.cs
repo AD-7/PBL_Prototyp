@@ -81,12 +81,29 @@ public class HUDController : MonoBehaviour
     }
 
 
+    void togleButton(Wolf wolf, Button button)
+    {
+        if (wolf.energy < 50)
+        {
+            wolf1Hunt.interactable = false;
+        }
+        else
+        {
+            button.interactable = true;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //huntingCounter += Time.deltaTime;
         //Debug.Log(huntingCounter);
 
+        togleButton(wolf1.GetComponent<Wolf>(), wolf1Hunt);
+        togleButton(wolf2.GetComponent<Wolf>(), wolf2Hunt);
+        togleButton(wolf3.GetComponent<Wolf>(), wolf3Hunt);
+        togleButton(wolf4.GetComponent<Wolf>(), wolf4Hunt);
+        togleButton(wolf5.GetComponent<Wolf>(), wolf5Hunt);
 
         if (wolfScreen.gameObject.active && (Input.GetMouseButton(1) || Input.GetButton("Cancel")))
         {
@@ -279,17 +296,20 @@ bool wolf5OnlyinQuest()
             currCountdownValue2--;
         }
         huntInfo.gameObject.SetActive(false);
-
-      
-
     }
 
 
 
     public void Wolf1HuntClicked()
     {
-        if(wolf1.GetComponent<Wolf>().energy > 50)
+        huntScreen.SetActive(false);
+
+        if (wolf1.GetComponent<Wolf>().energy > 50)
         {
+            if (40 - wolf1.GetComponent<Wolf>().resistance < 10)
+                wolf1.GetComponent<Wolf>().energy -= 10;
+            else
+                wolf1.GetComponent<Wolf>().energy -= 40 - wolf1.GetComponent<Wolf>().resistance;
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf1.GetComponent<Wolf>());
        HuntScene.gameObject.SetActive(true);
        GameScene.gameObject.SetActive(false);
@@ -300,9 +320,15 @@ bool wolf5OnlyinQuest()
 
     public void Wolf2HuntClicked()
     {
+        huntScreen.SetActive(false);
+
         if (wolf2.GetComponent<Wolf>().energy > 50)
         {
-         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
+            if (40 - wolf2.GetComponent<Wolf>().resistance < 10)
+                wolf2.GetComponent<Wolf>().energy -= 10;
+            else
+                wolf2.GetComponent<Wolf>().energy -= 40 - wolf2.GetComponent<Wolf>().resistance;
+            Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
         EndHuntInfo.gameObject.SetActive(false);
@@ -312,34 +338,51 @@ bool wolf5OnlyinQuest()
 
     public void Wolf3HuntClicked()
     {
+        huntScreen.SetActive(false);
+
         if (wolf3.GetComponent<Wolf>().energy > 50)
         {
-   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
-        HuntScene.gameObject.SetActive(true);
-        GameScene.gameObject.SetActive(false);
-        EndHuntInfo.gameObject.SetActive(false);
+            if (40 - wolf3.GetComponent<Wolf>().resistance < 10)
+                wolf3.GetComponent<Wolf>().energy -= 10;
+            else
+                wolf3.GetComponent<Wolf>().energy -= 40 - wolf3.GetComponent<Wolf>().resistance;
+            Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
+            HuntScene.gameObject.SetActive(true);
+            GameScene.gameObject.SetActive(false);
+            EndHuntInfo.gameObject.SetActive(false);
         }
          
     }
     public void Wolf4HuntClicked()
     {
+        huntScreen.SetActive(false);
+
         if (wolf4.GetComponent<Wolf>().energy > 50)
         {
-   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
-        HuntScene.gameObject.SetActive(true);
-        GameScene.gameObject.SetActive(false);
-        EndHuntInfo.gameObject.SetActive(false);
+            if (40 - wolf4.GetComponent<Wolf>().resistance < 10)
+                wolf4.GetComponent<Wolf>().energy -= 10;
+            else
+                wolf4.GetComponent<Wolf>().energy -= 40 - wolf4.GetComponent<Wolf>().resistance;
+            Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
+            HuntScene.gameObject.SetActive(true);
+            GameScene.gameObject.SetActive(false);
+            EndHuntInfo.gameObject.SetActive(false);
         }
          
     }
         public void Wolf5HuntClicked()
     {
-        if (wolf3.GetComponent<Wolf>().energy > 50)
+        huntScreen.SetActive(false);
+        if (wolf5.GetComponent<Wolf>().energy > 50)
         {
-   Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
-        HuntScene.gameObject.SetActive(true);
-        GameScene.gameObject.SetActive(false);
-         EndHuntInfo.gameObject.SetActive(false);
+            if (40 - wolf5.GetComponent<Wolf>().resistance < 10)
+                wolf5.GetComponent<Wolf>().energy -= 10;
+            else
+                wolf5.GetComponent<Wolf>().energy -= 40 - wolf5.GetComponent<Wolf>().resistance;
+            Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
+            HuntScene.gameObject.SetActive(true);
+            GameScene.gameObject.SetActive(false);
+            EndHuntInfo.gameObject.SetActive(false);
         }
          
     }
