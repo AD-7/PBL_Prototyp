@@ -201,10 +201,7 @@ public class HUDController : MonoBehaviour
         //    wolfHunting = true;
         //    StartCoroutine(StartCountdown());
         //}
-       wolvesStats.strength= wolf1.GetComponent<Wolf>().strength;
-        wolvesStats.resistance = wolf1.GetComponent<Wolf>().resistance;
-        wolvesStats.speed = wolf1.GetComponent<Wolf>().speed;
-        wolvesStats.agression = wolf1.GetComponent<Wolf>().agression;
+        wolvesStats.wolf1 = wolf1.GetComponent<Wolf>();
 
         SceneManager.LoadScene("HuntingScene");
     }

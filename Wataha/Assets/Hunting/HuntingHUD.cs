@@ -15,7 +15,7 @@ public class HuntingHUD : MonoBehaviour
     void Start()
     {
         stats = WolvesStats.Instance;
-        if (stats.resistance < 11)
+        if (stats.wolf1.resistance < 11)
         {
             timeForHunting = 9.99f;
         }

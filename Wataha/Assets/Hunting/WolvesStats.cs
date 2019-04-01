@@ -9,11 +9,18 @@ public class WolvesStats : MonoBehaviour
         get;
         set;
     }
-    public int strength = 10;
-    public int resistance = 10;
-    public int speed = 10;
-    public int agression = 100;
-    public int energy = 100;
+    public Wolf wolf1;
+    public Wolf wolf2;
+    public Wolf wolf3;
+    public Wolf wolf4;
+    public Wolf wolf5;
+    public int wolvesPositionX;
+    public int wolvesPositionZ;
+    public int wolvesRotationY;
+    public int meat;
+    public int wf;
+    public int gf;
+ 
     void Awake()
     {
         if(Instance == null)
