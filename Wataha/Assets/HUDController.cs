@@ -26,7 +26,7 @@ public class HUDController : MonoBehaviour
     public Text wolf1Desc, wolf2Desc, wolf3Desc, wolf4Desc, wolf5Desc;
 
     private GameObject actualWolf;
-
+    
     public GameObject wolfScreen, huntScreen;
     public Text strength, resistance, energy, speed, agression;
 
@@ -46,6 +46,7 @@ public class HUDController : MonoBehaviour
     float dieCounter = 60.0f;
     int secondsTodie = 60;
     bool wolfHunting;
+    public GameObject EndHuntInfo;
     // Start is called before the first frame update
     void Awake()
     {
@@ -290,6 +291,7 @@ bool wolf5OnlyinQuest()
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf1.GetComponent<Wolf>());
        HuntScene.gameObject.SetActive(true);
        GameScene.gameObject.SetActive(false);
+        EndHuntInfo.gameObject.SetActive(false);
     }
 
     public void Wolf2HuntClicked()
@@ -297,6 +299,7 @@ bool wolf5OnlyinQuest()
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf2.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
+        EndHuntInfo.gameObject.SetActive(false);
     }
 
     public void Wolf3HuntClicked()
@@ -304,18 +307,21 @@ bool wolf5OnlyinQuest()
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf3.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
+        EndHuntInfo.gameObject.SetActive(false);
     }
     public void Wolf4HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf4.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
+        EndHuntInfo.gameObject.SetActive(false);
     }
         public void Wolf5HuntClicked()
     {
         Wolf.copyStat(wolfHunt.GetComponent<Wolf>(), wolf5.GetComponent<Wolf>());
         HuntScene.gameObject.SetActive(true);
         GameScene.gameObject.SetActive(false);
+        EndHuntInfo.gameObject.SetActive(false);
     }
 
     void ProceedActualWolf()
