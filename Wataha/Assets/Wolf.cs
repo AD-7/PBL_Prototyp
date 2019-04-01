@@ -5,7 +5,7 @@ using System;
 public class Wolf : MonoBehaviour
 {
 
-     public int strength = 10;
+    public int strength = 10;
     public int resistance = 10;
     public int speed = 10;
     public int agression = 100;
@@ -65,6 +65,15 @@ public class Wolf : MonoBehaviour
 
 
 
+    }
+
+    void copyStat(Wolf wolf)
+    {
+        strength = wolf.strength;
+        resistance = wolf.resistance;
+        speed = wolf.speed;
+        agression = wolf.agression;
+        energy = wolf.energy;
     }
 
     // Update is called once per frame
