@@ -6,7 +6,7 @@ public class Animal : MonoBehaviour
 {
 
     public int meat = 10;
-    public float walkSpeed =   10.0f;
+    public float walkSpeed;
     // Start is called before the first frame update
     void Start()
     {

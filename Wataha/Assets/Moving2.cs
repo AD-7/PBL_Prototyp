@@ -27,12 +27,12 @@ public class Moving2 : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
            position.transform.Translate(new Vector3(0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, 1, 0), 1.2f);
+            position.Rotate(new Vector3(0, 1, 0), 1.3f);
         }
         if (Input.GetKey(KeyCode.A))
         {
             position.transform.Translate(new Vector3(-0.01f, 0.0f, 0.0f));
-            position.Rotate(new Vector3(0, -1, 0), 1.2f);
+            position.Rotate(new Vector3(0, -1, 0), 1.3f);
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -42,7 +42,7 @@ public class Moving2 : MonoBehaviour
 
         if (Input.GetButton("Sprint"))
         {
-            position.transform.Translate(new Vector3(0, 0, 1.2f * GetComponent<Wolf>().speed * Time.deltaTime));
+            position.transform.Translate(new Vector3(0, 0, 1.3f * GetComponent<Wolf>().speed * Time.deltaTime));
             
 
         }
