@@ -22,6 +22,8 @@ public class HuntingHUD : MonoBehaviour
     public int meatHuntedd;
     public int maxMeatt;
     float timeLeft;
+
+    bool started = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -29,7 +31,10 @@ public class HuntingHUD : MonoBehaviour
     }
     void Start()
     {
-      
+
+        Info.SetActive(true);
+        EndInfo.SetActive(false);
+
         meatHuntedd = 0;
 
         if (wolfHunt.resistance < 10)
@@ -75,39 +80,46 @@ public class HuntingHUD : MonoBehaviour
             maxMeat.text = "Max.meat: " + maxMeatt.ToString();
         }
 
+
+        started = true;
     }
 
   
-
-
-
-
     // Update is called once per frame
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        time.text = "Time left: " + timeLeft;
-        meatHuntedText.text = "Meat hunted: " + meatHuntedd;
-        meatHuntedIntheEndText.text = meatHuntedText.text;
-
-        if (timeLeft <= 0 || maxMeatt == meatHuntedd )
+        if (!started)
         {
-            AnimalManager.SetActive(false);
-            foreach(GameObject animal in GameObject.FindGameObjectsWithTag("Animal"))
+            Start();
+            AnimalManager.GetComponent<AnimalSpawn>().StartP();
+        }
+        else
+        {
+
+            timeLeft -= Time.deltaTime;
+            time.text = "Time left: " + timeLeft;
+            meatHuntedText.text = "Meat hunted: " + meatHuntedd;
+            meatHuntedIntheEndText.text = meatHuntedText.text;
+
+            if (timeLeft <= 0 || maxMeatt == meatHuntedd)
             {
-                GameObject.Destroy(animal);
+                AnimalManager.SetActive(false);
+                foreach (GameObject animal in GameObject.FindGameObjectsWithTag("Animal"))
+                {
+                    GameObject.Destroy(animal);
+                }
+                Info.gameObject.SetActive(false);
+                EndInfo.gameObject.SetActive(true);
             }
-            Info.gameObject.SetActive(false);
-            EndInfo.gameObject.SetActive(true);
         }
     }
 
     public void ReturnClicked()
     {
-
+        started = false;
         foreach (AnimalSpawn spawn in AnimalManager.GetComponentsInChildren<AnimalSpawn>())
         {
-            spawn.enabled = false;
+            spawn.CancelInvoke();
         }
 
         GameScene.GetComponentInChildren<HUDController>().Meat += meatHuntedd;
