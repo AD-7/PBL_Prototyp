@@ -3181,7 +3181,7 @@ MonoBehaviour:
   numberOfWhiteFangsText: {fileID: 2075367753}
   numberOfGoldFangsText: {fileID: 4297585}
   numerOfMeatConsumption: {fileID: 2033152662}
-  Meat: 50
+  Meat: 150
   WhiteFangs: 20
   GoldFangs: 0
   wolf1button: {fileID: 833285924}

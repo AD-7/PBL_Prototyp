@@ -85,7 +85,7 @@ public class Wolf : MonoBehaviour
             energyRecoverTime -= Time.deltaTime;
             if(energyRecoverTime <= 0)
             {
-                energy += 25;
+                energy += 5;
                 energyRecoverTime = 5.0f;
             }
         }

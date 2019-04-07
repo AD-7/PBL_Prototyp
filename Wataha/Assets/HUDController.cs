@@ -122,9 +122,9 @@ public class HUDController : MonoBehaviour
         consumption = consumption / 7;
         consumption *= 3;
 
-        numerOfMeatConsumption.text = "-" + consumption.ToString() + " /20s";
+        numerOfMeatConsumption.text = "-" + consumption.ToString() + " /40s";
 
-        if (counter >= 20)
+        if (counter >= 40)
         {
             if (Meat > 0)
             {

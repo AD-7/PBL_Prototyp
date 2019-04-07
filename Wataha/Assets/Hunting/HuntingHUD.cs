@@ -39,23 +39,23 @@ public class HuntingHUD : MonoBehaviour
 
         if (wolfHunt.resistance < 10)
         {
-            timeLeft = 16.0f;
+            timeLeft = 20.0f;
             time.text = "Time left: " + timeLeft;
         }
         else if (wolfHunt.resistance < 15)
         {
-            timeLeft = 22.0f;
+            timeLeft = 25.0f;
             time.text = "Time left: " + timeLeft;
         }
 
         else if (wolfHunt.resistance < 20)
         {
-            timeLeft = 28.0f;
+            timeLeft = 30.0f;
             time.text = "Time left: " + timeLeft;
         }
         else if (wolfHunt.resistance >=20)
         {
-            timeLeft = 35.0f;
+            timeLeft = 40.0f;
             time.text = "Time left: " + timeLeft;
         }
 
